@@ -11,6 +11,313 @@ import folium
 from streamlit_folium import st_folium
 from pathlib import Path
 
+# =====================================================================
+# Vercel / WSGI / ASGI Serverless Entrypoint Compatibility
+# =====================================================================
+def app(environ, start_response):
+    """
+    WSGI Entrypoint callable for serverless platforms (e.g., Vercel).
+    Resolves 'Found app.py but it does not export a top-level app' error.
+    """
+    path = environ.get('PATH_INFO', '/')
+
+    if path == '/api/health':
+        status = '200 OK'
+        headers = [
+            ('Content-Type', 'application/json; charset=utf-8'),
+            ('Access-Control-Allow-Origin', '*')
+        ]
+        start_response(status, headers)
+        return [b'{"status":"healthy","service":"MediPulse AI Blood Donor Finder"}']
+
+    status = '200 OK'
+    headers = [
+        ('Content-Type', 'text/html; charset=utf-8'),
+        ('Cache-Control', 'public, max-age=300')
+    ]
+    start_response(status, headers)
+
+    html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediPulse AI - Blood Donor & Emergency Dispatch Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0B0F19;
+      --card-bg: rgba(17, 24, 39, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --crimson: #E11D48;
+      --crimson-glow: rgba(225, 29, 72, 0.35);
+      --cyan: #06B6D4;
+      --emerald: #10B981;
+      --amber: #F59E0B;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(225, 29, 72, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+    }
+    .container { max-width: 1040px; width: 100%; }
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(225, 29, 72, 0.12);
+      border: 1px solid rgba(225, 29, 72, 0.3);
+      color: #FDA4AF;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 20px;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--crimson);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--crimson);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.6; }
+    }
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, #FFFFFF 30%, #FDA4AF 70%, #F43F5E 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 780px;
+      margin-bottom: 36px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 20px;
+      transition: all 0.25s ease;
+    }
+    .stat-card:hover {
+      border-color: rgba(225, 29, 72, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px var(--crimson-glow);
+    }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .stat-val { font-size: 2.1rem; font-weight: 800; color: #FFFFFF; margin: 6px 0; font-family: 'JetBrains Mono', monospace; }
+    .stat-sub { font-size: 0.82rem; color: #10B981; font-weight: 600; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--crimson);
+    }
+    .feature-card.cyan::before { background: var(--cyan); }
+    .feature-card.emerald::before { background: var(--emerald); }
+    .feature-card.amber::before { background: var(--amber); }
+    .feature-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    .feature-desc { font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; }
+    .launch-panel {
+      background: linear-gradient(135deg, rgba(225, 29, 72, 0.12) 0%, rgba(17, 24, 39, 0.9) 100%);
+      border: 1px solid rgba(225, 29, 72, 0.35);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .launch-panel h2 { font-size: 1.5rem; font-weight: 800; color: #FFFFFF; }
+    .code-box {
+      background: #030712;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      color: #38BDF8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      overflow-x: auto;
+    }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(225, 29, 72, 0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.6);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #F8FAFC;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #64748B;
+      margin-top: auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-badge">
+      <span class="pulse-dot"></span>
+      <span>Karur & Tamil Nadu Emergency Telemetry Hub</span>
+    </div>
+    <h1>AI-Based Emergency Blood Donor Finder</h1>
+    <p class="subtitle">
+      Automated blood bank management, spatial Haversine proximity donor matching, pre-donation clinical vital sign telemetry, and hospital emergency dispatch system.
+    </p>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Registered Donors</div>
+        <div class="stat-val">150+</div>
+        <div class="stat-sub">Active in Tamil Nadu</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Blood Units</div>
+        <div class="stat-val">420+</div>
+        <div class="stat-sub">8 Blood Groups Tracked</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Hospitals & Centers</div>
+        <div class="stat-val">10</div>
+        <div class="stat-sub">Connected Repositories</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">AI Match Engine</div>
+        <div class="stat-val">0-100%</div>
+        <div class="stat-sub">Proximity & Compatibility</div>
+      </div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-title">🚨 Emergency Blood Dispatch & AI Matching</div>
+        <div class="feature-desc">
+          Automates hospital emergency blood requests with multi-factor AI scoring combining biological compatibility, spatial Haversine proximity, health screening status, and donation experience.
+        </div>
+      </div>
+      <div class="feature-card cyan">
+        <div class="feature-title">🩺 Pre-Donation Health Screening</div>
+        <div class="feature-desc">
+          Analyzes donor vital readings (Body Temp, Heart Rate, SpO2 %, Systolic/Diastolic BP) against physiological reference ranges with authorized physician manual override controls.
+        </div>
+      </div>
+      <div class="feature-card emerald">
+        <div class="feature-title">📊 Comprehensive 13-Chart Analytics</div>
+        <div class="feature-desc">
+          Interactive Folium geolocation mapping, stock distribution heatmaps, 30-day AI demand forecasting, and complete CSV exports.
+        </div>
+      </div>
+    </div>
+
+    <div class="launch-panel">
+      <h2>🚀 Access Full Interactive Dashboard</h2>
+      <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6;">
+        The full multi-page dashboard with real-time interactive Folium maps, dynamic sliders, and physician workflows runs with Streamlit:
+      </p>
+      <div class="code-box">
+        <span>streamlit run app.py</span>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://share.streamlit.io" target="_blank" rel="noopener">
+          ☁️ Open on Streamlit Community Cloud
+        </a>
+        <a class="btn btn-secondary" href="https://github.com/dharanidharanbaskar/AI-BLOOD-DONAR" target="_blank" rel="noopener">
+          📂 GitHub Repository
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      <p>MediPulse AI &bull; Healthcare Decision Support System &bull; SQLite &bull; Python &bull; Streamlit</p>
+    </footer>
+  </div>
+</body>
+</html>"""
+    return [html_content.encode('utf-8')]
+
+# Top-level exports for Vercel, WSGI, and ASGI discovery
+handler = app
+application = app
+
 # Set Page Config
 st.set_page_config(
     page_title="MediPulse AI - Karur & Tamil Nadu Blood Donor Finder",
