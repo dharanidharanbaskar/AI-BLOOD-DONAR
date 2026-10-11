@@ -44,43 +44,126 @@ button[data-testid="stSidebarCollapseButton"]:hover {
     transform: scale(1.05) !important;
 }
 
-/* Custom Green Styling for ALL Buttons & Download Buttons */
+/* Custom Green Styling for ALL Buttons, Submit Buttons & Download Buttons */
 div.stButton > button,
 div.stDownloadButton > button,
+div[data-testid="stFormSubmitButton"] > button,
 button[kind="primary"],
 button[kind="secondary"],
+button[data-testid="baseButton-primary"],
+button[data-testid="baseButton-secondary"],
 .stButton button,
 .stDownloadButton button {
     background-color: #059669 !important;
     background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
     color: #FFFFFF !important;
     font-weight: 700 !important;
-    font-size: 0.9rem !important;
+    font-size: 0.92rem !important;
     border-radius: 10px !important;
     border: none !important;
     padding: 10px 22px !important;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35) !important;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
     transition: all 0.2s ease-in-out !important;
 }
 
 div.stButton > button:hover,
 div.stDownloadButton > button:hover,
+div[data-testid="stFormSubmitButton"] > button:hover,
 button[kind="primary"]:hover,
 button[kind="secondary"]:hover,
+button[data-testid="baseButton-primary"]:hover,
+button[data-testid="baseButton-secondary"]:hover,
 .stButton button:hover,
 .stDownloadButton button:hover {
     background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
     color: #FFFFFF !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.45) !important;
+    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.45) !important;
 }
 
-/* Ensure text inside all buttons is bright white and legible */
+/* Ensure text inside action and submit buttons is bright white and legible */
 div.stButton > button *,
 div.stDownloadButton > button *,
-button * {
+div[data-testid="stFormSubmitButton"] > button *,
+button[kind="primary"] *,
+button[kind="secondary"] *,
+button[data-testid="baseButton-primary"] *,
+button[data-testid="baseButton-secondary"] * {
     color: #FFFFFF !important;
 }
+
+/* Streamlit Tabs Navigation & Tab Buttons (Green Theme) */
+div[data-testid="stTabs"] {
+    margin-top: 12px !important;
+    margin-bottom: 24px !important;
+}
+
+div[data-baseweb="tab-list"] {
+    background-color: #F1F5F9 !important;
+    border-radius: 12px !important;
+    padding: 6px !important;
+    gap: 8px !important;
+    border: 1px solid #E2E8F0 !important;
+}
+
+/* Active tab highlight indicator in Green */
+div[data-baseweb="tab-highlight"] {
+    background-color: #10B981 !important;
+    height: 3px !important;
+    border-radius: 3px !important;
+}
+
+div[data-baseweb="tab-border"] {
+    display: none !important;
+}
+
+/* Inactive Tab buttons */
+button[data-baseweb="tab"] {
+    background-color: #FFFFFF !important;
+    border-radius: 8px !important;
+    padding: 10px 22px !important;
+    border: 1px solid #E2E8F0 !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+button[data-baseweb="tab"] p,
+button[data-baseweb="tab"] span,
+button[data-baseweb="tab"] div,
+button[data-baseweb="tab"] * {
+    color: #1E293B !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+}
+
+button[data-baseweb="tab"]:hover {
+    background-color: #ECFDF5 !important;
+    border-color: #10B981 !important;
+}
+
+button[data-baseweb="tab"]:hover p,
+button[data-baseweb="tab"]:hover span,
+button[data-baseweb="tab"]:hover div,
+button[data-baseweb="tab"]:hover * {
+    color: #059669 !important;
+}
+
+/* Selected Active Tab Button in Vibrant Green */
+button[data-baseweb="tab"][aria-selected="true"] {
+    background-color: #059669 !important;
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+    color: #FFFFFF !important;
+    border: 1px solid #059669 !important;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4) !important;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] p,
+button[data-baseweb="tab"][aria-selected="true"] span,
+button[data-baseweb="tab"][aria-selected="true"] div,
+button[data-baseweb="tab"][aria-selected="true"] * {
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+}
+
 
 /* Sidebar styling */
 [data-testid="stSidebar"] {
