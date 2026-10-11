@@ -1,0 +1,17 @@
+centre_id,centre_name,centre_type,location,latitude,longitude,contact_phone,emergency_contact
+CTR-01,Karur Government Medical College Hospital,Hospital,Karur,10.9601,78.0766,+91-4324-220101,+91-4324-290101
+CTR-02,Chennai General Hospital Transfusion Depot,Hospital,Chennai (Capital City),13.0827,80.2707,+91-44-220102,+91-44-290102
+CTR-03,Coimbatore Medical College Hospital,Hospital,Coimbatore,11.0168,76.9558,+91-422-220103,+91-422-290103
+CTR-04,Madurai Rajaji Government Hospital,Hospital,Madurai,9.9252,78.1198,+91-452-220104,+91-452-290104
+CTR-05,Trichy MGM Government Hospital,Hospital,Tiruchirappalli (Trichy),10.7905,78.7047,+91-431-220105,+91-431-290105
+CTR-06,Tiruppur Regional Red Cross Depot,Blood Bank,Tiruppur,11.1085,77.3411,+91-421-220106,+91-421-290106
+CTR-07,Salem Mohan Kumaramangalam Hospital,Hospital,Salem,11.6643,78.146,+91-427-220107,+91-427-290107
+CTR-08,Erode District Headquarters Hospital,Hospital,Erode,11.341,77.7172,+91-424-220108,+91-424-290108
+CTR-09,Tirunelveli Medical College Hospital,Hospital,Tirunelveli,8.7139,77.7567,+91-462-220109,+91-462-290109
+CTR-10,Vellore CMC Transfusion Center,Blood Bank,Vellore,12.9165,79.1325,+91-416-220110,+91-416-290110
+CTR-11,Thoothukudi Government Hospital,Hospital,Thoothukudi (Tuticorin),8.7642,78.1348,+91-461-220111,+91-461-290111
+CTR-12,Dindigul Central Medical Depot,Blood Bank,Dindigul,10.3673,77.9803,+91-451-220112,+91-451-290112
+CTR-13,Thanjavur Medical College Hospital,Hospital,Thanjavur,10.787,79.1378,+91-4362-220113,+91-4362-290113
+CTR-14,Nagercoil City Blood Center,Blood Bank,Nagercoil,8.1833,77.4119,+91-4652-220114,+91-4652-290114
+CTR-15,Hosur Industrial Medical Hub,Hospital,Hosur,12.7409,77.8253,+91-4344-220115,+91-4344-290115
+CTR-16,Kumbakonam Temple Town Hospital,Hospital,Kumbakonam,10.9602,79.3782,+91-435-220116,+91-435-290116
