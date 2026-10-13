@@ -171,7 +171,7 @@ with tab_match:
                     notified_donors = matches.head(notify_top_n)
                     st.success(f"⚡ Emergency SMS & Push notifications dispatched to top {notify_top_n} donors:")
                     for _, d_row in notified_donors.iterrows():
-                        st.write(f"- 📩 Notification sent to **{d_row['name']}** ({d_row['donor_id']}) | Dist: **{d_row['distance_km']} km** | AI Score: **{d_row['ai_match_score']}%**")
+                        st.write(f"- 📩 Alert dispatched to **{d_row['name']}** ({d_row['donor_id']}) | 📞 Phone: `{d_row['contact_number']}` | Dist: **{d_row['distance_km']} km** | AI Score: **{d_row['ai_match_score']}%**")
                     update_request_status(sel_match_req, "Contacted")
         else:
             st.warning("No compatible available donors found in the immediate area for this blood group.")

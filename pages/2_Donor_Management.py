@@ -103,6 +103,24 @@ st.dataframe(
     hide_index=True
 )
 
+if is_staff and not df_display.empty:
+    with st.expander("📞 Quick Emergency Contact Launcher (Direct Call & WhatsApp)"):
+        c_sel1, c_sel2, c_sel3 = st.columns([2, 1, 1])
+        with c_sel1:
+            sel_donor_opt = st.selectbox(
+                "Select Donor from Directory:", 
+                [f"{row['donor_id']} - {row['name']} ({row['blood_group']}) [{row['city_locality']}]" for _, row in df_display.iterrows()]
+            )
+            selected_id = sel_donor_opt.split(" - ")[0]
+            sel_row = df_display[df_display['donor_id'] == selected_id].iloc[0]
+        with c_sel2:
+            st.markdown(f"**Contact Number:** `{sel_row['contact_number']}`")
+            st.markdown(f'<a href="tel:{sel_row["contact_number"]}" target="_blank" style="text-decoration:none;"><button style="background:#0284c7; color:white; border:none; padding:8px 16px; border-radius:6px; font-weight:bold; cursor:pointer;">📞 Call Donor</button></a>', unsafe_allow_html=True)
+        with c_sel3:
+            raw_phone = "".join(filter(str.isdigit, sel_row['contact_number']))[-10:]
+            st.markdown(f"**Availability:** `{sel_row['availability_status']}`")
+            st.markdown(f'<a href="https://wa.me/91{raw_phone}?text=Hello%20{sel_row["name"]},%20urgent%20blood%20donation%20requirement%20at%20our%20hospital." target="_blank" style="text-decoration:none;"><button style="background:#16a34a; color:white; border:none; padding:8px 16px; border-radius:6px; font-weight:bold; cursor:pointer;">💬 WhatsApp Chat</button></a>', unsafe_allow_html=True)
+
 st.divider()
 
 # Management Action Tabs: Add Donor | Edit/Deactivate Donor

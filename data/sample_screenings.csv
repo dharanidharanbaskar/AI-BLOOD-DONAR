@@ -1,161 +1,161 @@
 screening_id,donor_id,donor_name,screening_datetime,temperature,heart_rate,spo2,systolic_bp,diastolic_bp,health_questionnaire_passed,preliminary_status,review_notes,evaluated_by
-SCR-9001,DON-1001,Deepa Raman,2026-09-30 12:00:00,36.4,62,97,117,69,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9002,DON-1002,Anand Raman,2026-09-28 12:00:00,37.1,80,99,125,84,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9003,DON-1003,Kumar Pillai,2026-10-04 06:00:00,37.1,73,100,134,69,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9004,DON-1004,Vijay Natarajan,2026-09-30 22:00:00,36.6,106,99,118,75,1,Medical Review Required,Tachycardia flag (106 bpm). Physician evaluation required prior to phlebotomy.,Dr. R. Kavitha
-SCR-9005,DON-1005,Dinesh Natarajan,2026-10-07 11:00:00,36.5,87,100,130,79,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9006,DON-1006,Anand Ganesan,2026-10-07 00:00:00,37.1,87,96,126,79,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9007,DON-1007,Prakash Shanmugam,2026-10-03 02:00:00,36.6,80,98,135,84,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9008,DON-1008,Ganesh Kandasamy,2026-10-01 05:00:00,37.3,89,97,130,72,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9009,DON-1009,Santhosh Viswanathan,2026-10-03 03:00:00,37.1,83,99,123,72,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9010,DON-1010,Sowmya Kandasamy,2026-10-01 23:00:00,36.9,90,96,120,84,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9011,DON-1011,Sowmya Rajendran,2026-09-30 07:00:00,36.6,62,96,131,82,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9012,DON-1012,Gayathri Mudaliar,2026-09-28 14:00:00,37.3,88,97,123,76,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9013,DON-1013,Deepa Naidu,2026-10-02 19:00:00,36.4,89,99,133,78,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9014,DON-1014,Vignesh Gounder,2026-10-07 21:00:00,37.1,62,96,135,73,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9015,DON-1015,Divya Rajendran,2026-10-09 23:00:00,36.7,84,97,128,77,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9016,DON-1016,Sangeetha Ganesan,2026-10-08 00:00:00,36.6,73,97,109,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9017,DON-1017,Arun Chettiar,2026-09-30 20:00:00,37.0,62,97,123,70,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9018,DON-1018,Ramesh Murugesan,2026-09-28 22:00:00,36.3,84,98,134,71,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9019,DON-1019,Kavitha Chandrasekaran,2026-09-29 19:00:00,36.4,90,92,113,75,1,Temporary Deferral and Reassessment,SpO2 below target (92%). Deferral recommended.,Technician M. Balaji
-SCR-9020,DON-1020,Anand Chandrasekaran,2026-10-07 01:00:00,37.1,89,97,128,72,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9021,DON-1021,Nandhini Chettiar,2026-10-06 11:00:00,37.0,82,97,121,82,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9022,DON-1022,Priya Sundaram,2026-10-07 20:00:00,38.4,77,98,123,75,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 38.4°C). Temporarily deferred for 14 days.,Nurse S. Revathi
-SCR-9023,DON-1023,Arun Thangaraj,2026-10-04 02:00:00,36.5,81,100,131,77,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9024,DON-1024,Ashok Raman,2026-10-05 14:00:00,36.8,85,99,117,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9025,DON-1025,Karthik Viswanathan,2026-10-01 18:00:00,36.9,67,92,110,75,1,Temporary Deferral and Reassessment,SpO2 below target (92%). Deferral recommended.,Nurse S. Revathi
-SCR-9026,DON-1026,Murugan Shanmugam,2026-10-01 17:00:00,36.9,73,100,129,73,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9027,DON-1027,Preethi Venkatesan,2026-10-09 15:00:00,36.3,68,96,109,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9028,DON-1028,Balaji Ganesan,2026-09-30 23:00:00,36.4,79,100,127,72,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9029,DON-1029,Vignesh Shanmugam,2026-10-03 09:00:00,37.3,122,100,120,76,1,Medical Review Required,Tachycardia flag (122 bpm). Physician evaluation required prior to phlebotomy.,Dr. K. Senthil Kumar
-SCR-9030,DON-1030,Kavitha Raman,2026-10-03 09:00:00,37.0,89,97,109,75,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9031,DON-1031,Prakash Natarajan,2026-10-07 12:00:00,36.9,71,97,111,68,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9032,DON-1032,Preethi Raman,2026-10-06 12:00:00,36.6,78,98,113,79,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9033,DON-1033,Pavithra Krishnan,2026-10-07 11:00:00,36.3,87,99,116,84,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9034,DON-1034,Vignesh Subramanian,2026-09-27 16:00:00,36.8,78,98,109,83,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9035,DON-1035,Ganesh Kandasamy,2026-10-06 15:00:00,36.4,80,96,115,84,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9036,DON-1036,Janani Pillai,2026-10-09 17:00:00,36.7,69,93,111,78,1,Temporary Deferral and Reassessment,SpO2 below target (93%). Deferral recommended.,Nurse S. Revathi
-SCR-9037,DON-1037,Vijay Rajendran,2026-10-03 03:00:00,36.6,67,100,161,104,1,Temporary Deferral and Reassessment,Hypertension flag (161/104 mmHg). Rest period suggested.,Dr. K. Senthil Kumar
-SCR-9038,DON-1038,Rajesh Raman,2026-10-06 04:00:00,37.3,77,96,124,83,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Technician M. Balaji
-SCR-9039,DON-1039,Dinesh Subramanian,2026-10-03 08:00:00,36.9,62,98,114,77,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9040,DON-1040,Ramesh Viswanathan,2026-09-30 02:00:00,37.3,86,97,131,85,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9041,DON-1041,Bhuvaneshwari Raman,2026-10-09 20:00:00,36.3,79,98,128,68,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9042,DON-1042,Prakash Chandrasekaran,2026-10-01 23:00:00,37.0,65,97,124,75,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9043,DON-1043,Gayathri Raman,2026-10-08 17:00:00,36.4,70,96,109,75,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9044,DON-1044,Bhuvaneshwari Mudaliar,2026-09-30 05:00:00,36.4,65,100,112,80,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9045,DON-1045,Murugan Naidu,2026-09-30 17:00:00,36.4,71,98,135,78,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9046,DON-1046,Sowmya Naidu,2026-10-03 05:00:00,36.5,92,97,112,71,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9047,DON-1047,Kumar Shanmugam,2026-10-06 11:00:00,36.6,65,100,119,74,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9048,DON-1048,Nandhini Murugesan,2026-09-30 02:00:00,36.4,67,98,134,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9049,DON-1049,Archana Thangaraj,2026-10-06 20:00:00,37.3,113,100,111,80,1,Medical Review Required,Tachycardia flag (113 bpm). Physician evaluation required prior to phlebotomy.,Technician M. Balaji
-SCR-9050,DON-1050,Karthik Sundaram,2026-10-06 06:00:00,37.2,82,93,117,71,1,Temporary Deferral and Reassessment,SpO2 below target (93%). Deferral recommended.,Dr. K. Senthil Kumar
-SCR-9051,DON-1051,Deepa Kandasamy,2026-10-07 00:00:00,38.1,72,97,116,83,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 38.1°C). Temporarily deferred for 14 days.,Dr. K. Senthil Kumar
-SCR-9052,DON-1052,Gayathri Naidu,2026-09-27 13:00:00,37.2,64,96,110,74,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9053,DON-1053,Aarthi Ganesan,2026-10-08 00:00:00,37.1,72,96,109,82,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9054,DON-1054,Senthil Krishnan,2026-09-27 18:00:00,37.0,77,96,120,81,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9055,DON-1055,Ashok Kandasamy,2026-10-05 10:00:00,36.6,76,97,109,75,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9056,DON-1056,Dinesh Chettiar,2026-10-01 05:00:00,36.8,64,98,120,72,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9057,DON-1057,Ashok Mudaliar,2026-09-28 18:00:00,37.1,77,98,125,78,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Dr. R. Kavitha
-SCR-9058,DON-1058,Sowmya Venkatesan,2026-10-02 15:00:00,36.8,74,98,113,68,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9059,DON-1059,Senthil Thangaraj,2026-10-09 08:00:00,37.1,63,99,124,79,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9060,DON-1060,Dinesh Palanisamy,2026-10-07 20:00:00,36.6,116,96,117,79,1,Medical Review Required,Tachycardia flag (116 bpm). Physician evaluation required prior to phlebotomy.,Technician M. Balaji
-SCR-9061,DON-1061,Kavitha Subramanian,2026-10-06 07:00:00,36.6,88,98,128,70,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Technician M. Balaji
-SCR-9062,DON-1062,Balaji Shanmugam,2026-09-27 21:00:00,36.9,68,99,125,77,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9063,DON-1063,Nisha Raman,2026-10-09 04:00:00,36.9,114,100,125,70,1,Medical Review Required,Tachycardia flag (114 bpm). Physician evaluation required prior to phlebotomy.,Nurse S. Revathi
-SCR-9064,DON-1064,Nandhini Sundaram,2026-10-07 05:00:00,36.5,87,98,109,68,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9065,DON-1065,Gayathri Rajendran,2026-10-07 15:00:00,37.2,92,96,119,80,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9066,DON-1066,Archana Krishnan,2026-10-03 13:00:00,37.3,85,99,133,83,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9067,DON-1067,Nisha Palanisamy,2026-09-28 00:00:00,37.2,87,98,115,73,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9068,DON-1068,Dinesh Chandrasekaran,2026-10-03 17:00:00,37.9,83,99,128,70,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 37.9°C). Temporarily deferred for 14 days.,Technician M. Balaji
-SCR-9069,DON-1069,Pavithra Raman,2026-10-05 06:00:00,36.4,77,97,118,70,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9070,DON-1070,Aarthi Kandasamy,2026-10-03 04:00:00,38.0,86,98,124,70,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 38.0°C). Temporarily deferred for 14 days.,Nurse S. Revathi
-SCR-9071,DON-1071,Pavithra Gounder,2026-10-08 13:00:00,37.1,85,96,109,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9072,DON-1072,Deepa Shanmugam,2026-10-06 10:00:00,36.8,74,98,125,80,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9073,DON-1073,Revathi Pillai,2026-09-27 16:00:00,37.0,67,99,110,69,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9074,DON-1074,Sangeetha Raman,2026-10-03 04:00:00,36.4,72,97,120,73,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9075,DON-1075,Vijay Raman,2026-10-02 18:00:00,36.9,77,96,121,73,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9076,DON-1076,Deepa Natarajan,2026-10-08 20:00:00,37.3,125,100,127,74,1,Medical Review Required,Tachycardia flag (125 bpm). Physician evaluation required prior to phlebotomy.,Technician M. Balaji
-SCR-9077,DON-1077,Sangeetha Natarajan,2026-10-03 15:00:00,38.1,82,99,114,70,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 38.1°C). Temporarily deferred for 14 days.,Dr. R. Kavitha
-SCR-9078,DON-1078,Dinesh Kandasamy,2026-10-08 03:00:00,37.0,81,99,114,71,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9079,DON-1079,Meena Shanmugam,2026-10-06 08:00:00,37.3,77,96,117,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9080,DON-1080,Rajesh Kandasamy,2026-10-04 08:00:00,36.7,76,99,121,72,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Dr. R. Kavitha
-SCR-9081,DON-1081,Vignesh Pillai,2026-10-09 01:00:00,36.8,69,98,126,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9082,DON-1082,Kavitha Subramanian,2026-10-08 04:00:00,37.1,75,100,115,85,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9083,DON-1083,Sangeetha Viswanathan,2026-09-28 20:00:00,36.8,89,99,126,75,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9084,DON-1084,Suresh Palanisamy,2026-10-08 07:00:00,37.2,63,100,126,84,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9085,DON-1085,Revathi Pillai,2026-09-30 10:00:00,37.3,117,97,114,70,1,Medical Review Required,Tachycardia flag (117 bpm). Physician evaluation required prior to phlebotomy.,Dr. K. Senthil Kumar
-SCR-9086,DON-1086,Aarthi Natarajan,2026-09-30 17:00:00,37.1,116,98,112,71,1,Medical Review Required,Tachycardia flag (116 bpm). Physician evaluation required prior to phlebotomy.,Dr. R. Kavitha
-SCR-9087,DON-1087,Aarthi Murugesan,2026-09-28 05:00:00,36.6,76,96,133,84,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9088,DON-1088,Manikandan Raman,2026-10-01 03:00:00,36.9,89,96,113,79,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Dr. K. Senthil Kumar
-SCR-9089,DON-1089,Kumar Subramanian,2026-10-03 21:00:00,37.2,90,99,116,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9090,DON-1090,Suresh Ganesan,2026-10-09 04:00:00,36.4,84,92,111,76,1,Temporary Deferral and Reassessment,SpO2 below target (92%). Deferral recommended.,Nurse S. Revathi
-SCR-9091,DON-1091,Divya Chettiar,2026-10-08 22:00:00,37.2,90,98,108,78,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9092,DON-1092,Dinesh Shanmugam,2026-10-04 00:00:00,37.2,83,96,135,75,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9093,DON-1093,Manikandan Palanisamy,2026-09-30 13:00:00,36.6,85,99,127,70,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9094,DON-1094,Prakash Chandrasekaran,2026-10-05 11:00:00,36.7,77,100,135,79,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9095,DON-1095,Saravanan Thangaraj,2026-10-08 14:00:00,36.8,66,100,126,68,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9096,DON-1096,Arun Gounder,2026-10-05 17:00:00,36.5,76,96,119,74,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9097,DON-1097,Divya Thangaraj,2026-09-30 02:00:00,36.9,65,96,115,79,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9098,DON-1098,Senthil Chandrasekaran,2026-10-06 05:00:00,36.8,79,98,119,73,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9099,DON-1099,Swetha Natarajan,2026-10-03 22:00:00,38.0,83,97,117,80,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 38.0°C). Temporarily deferred for 14 days.,Nurse S. Revathi
-SCR-9100,DON-1100,Vijay Kandasamy,2026-10-04 06:00:00,36.8,89,96,123,72,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9101,DON-1101,Divya Ganesan,2026-10-05 05:00:00,37.1,71,98,121,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9102,DON-1102,Swetha Ganesan,2026-10-04 14:00:00,37.0,84,99,145,102,1,Temporary Deferral and Reassessment,Hypertension flag (145/102 mmHg). Rest period suggested.,Technician M. Balaji
-SCR-9103,DON-1103,Archana Murugesan,2026-09-28 00:00:00,36.9,71,96,123,70,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9104,DON-1104,Vignesh Kandasamy,2026-10-03 01:00:00,36.6,84,98,114,72,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9105,DON-1105,Murugan Murugesan,2026-10-01 09:00:00,37.0,85,96,128,83,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9106,DON-1106,Murugan Ganesan,2026-10-01 01:00:00,37.0,80,100,134,74,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9107,DON-1107,Anand Murugesan,2026-09-28 14:00:00,36.8,92,98,124,77,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9108,DON-1108,Lakshmi Shanmugam,2026-10-03 17:00:00,37.0,114,100,115,80,1,Medical Review Required,Tachycardia flag (114 bpm). Physician evaluation required prior to phlebotomy.,Dr. K. Senthil Kumar
-SCR-9109,DON-1109,Murugan Chandrasekaran,2026-10-05 06:00:00,37.0,71,99,133,78,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9110,DON-1110,Sowmya Raman,2026-09-27 12:00:00,37.2,77,96,135,70,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9111,DON-1111,Vijay Ganesan,2026-09-29 07:00:00,36.8,78,91,114,72,1,Temporary Deferral and Reassessment,SpO2 below target (91%). Deferral recommended.,Technician M. Balaji
-SCR-9112,DON-1112,Archana Murugesan,2026-10-01 06:00:00,37.2,76,97,118,73,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9113,DON-1113,Nandhini Naidu,2026-10-02 21:00:00,36.5,82,96,108,82,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9114,DON-1114,Rajesh Sundaram,2026-10-06 09:00:00,36.5,87,96,112,81,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9115,DON-1115,Nandhini Rajendran,2026-09-30 20:00:00,36.7,63,100,114,79,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9116,DON-1116,Ramesh Sundaram,2026-09-28 16:00:00,37.9,72,97,121,74,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 37.9°C). Temporarily deferred for 14 days.,Dr. R. Kavitha
-SCR-9117,DON-1117,Nandhini Krishnan,2026-09-29 06:00:00,36.5,88,96,117,77,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9118,DON-1118,Bhuvaneshwari Krishnan,2026-09-30 17:00:00,37.3,72,99,119,74,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9119,DON-1119,Deepa Raman,2026-10-09 14:00:00,36.5,107,100,126,72,1,Medical Review Required,Tachycardia flag (107 bpm). Physician evaluation required prior to phlebotomy.,Technician M. Balaji
-SCR-9120,DON-1120,Priya Krishnan,2026-10-09 04:00:00,36.9,86,100,127,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9121,DON-1121,Kumar Gounder,2026-10-09 13:00:00,38.2,77,96,127,74,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 38.2°C). Temporarily deferred for 14 days.,Nurse S. Revathi
-SCR-9122,DON-1122,Priya Chettiar,2026-10-05 14:00:00,36.9,71,99,129,71,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9123,DON-1123,Santhosh Mudaliar,2026-10-01 01:00:00,36.4,85,100,111,77,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9124,DON-1124,Murugan Kandasamy,2026-09-29 09:00:00,37.1,117,97,121,81,1,Medical Review Required,Tachycardia flag (117 bpm). Physician evaluation required prior to phlebotomy.,Technician M. Balaji
-SCR-9125,DON-1125,Gayathri Kandasamy,2026-10-06 13:00:00,37.2,87,90,120,73,1,Temporary Deferral and Reassessment,SpO2 below target (90%). Deferral recommended.,Dr. K. Senthil Kumar
-SCR-9126,DON-1126,Vignesh Rajendran,2026-10-08 02:00:00,37.1,83,99,112,70,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9127,DON-1127,Janani Krishnan,2026-10-04 12:00:00,36.8,71,98,122,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9128,DON-1128,Priya Murugesan,2026-10-09 03:00:00,36.7,83,98,121,71,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9129,DON-1129,Prakash Naidu,2026-10-09 19:00:00,37.0,67,98,119,82,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9130,DON-1130,Surya Mudaliar,2026-10-02 01:00:00,36.5,74,99,122,76,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9131,DON-1131,Lakshmi Krishnan,2026-10-01 00:00:00,37.1,65,97,130,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9132,DON-1132,Meena Viswanathan,2026-10-01 02:00:00,36.8,80,99,113,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9133,DON-1133,Priya Krishnan,2026-10-07 05:00:00,36.8,90,99,122,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9134,DON-1134,Rajesh Palanisamy,2026-10-03 07:00:00,37.1,83,100,117,80,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Technician M. Balaji
-SCR-9135,DON-1135,Anand Ganesan,2026-09-28 22:00:00,37.0,65,99,129,75,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9136,DON-1136,Murugan Chandrasekaran,2026-10-01 18:00:00,37.2,84,96,110,80,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Nurse S. Revathi
-SCR-9137,DON-1137,Manikandan Naidu,2026-09-29 05:00:00,37.2,89,97,110,83,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9138,DON-1138,Kavitha Chandrasekaran,2026-10-02 22:00:00,36.4,69,100,128,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9139,DON-1139,Santhosh Venkatesan,2026-10-08 07:00:00,37.1,76,96,135,83,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9140,DON-1140,Preethi Natarajan,2026-10-07 11:00:00,37.0,62,96,120,81,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9141,DON-1141,Preethi Gounder,2026-10-08 01:00:00,37.3,82,98,124,85,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9142,DON-1142,Vignesh Shanmugam,2026-10-02 17:00:00,36.4,69,99,118,85,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9143,DON-1143,Balaji Pillai,2026-09-30 08:00:00,36.3,115,98,127,78,1,Medical Review Required,Tachycardia flag (115 bpm). Physician evaluation required prior to phlebotomy.,Dr. K. Senthil Kumar
-SCR-9144,DON-1144,Kavitha Chettiar,2026-10-09 00:00:00,36.8,88,99,111,76,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9145,DON-1145,Archana Kandasamy,2026-10-07 10:00:00,36.7,76,97,130,78,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9146,DON-1146,Dinesh Kandasamy,2026-10-09 00:00:00,37.1,80,96,132,82,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9147,DON-1147,Prabhu Gounder,2026-09-29 08:00:00,38.2,78,100,125,84,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 38.2°C). Temporarily deferred for 14 days.,Nurse S. Revathi
-SCR-9148,DON-1148,Lakshmi Subramanian,2026-09-27 15:00:00,36.4,114,100,129,84,1,Medical Review Required,Tachycardia flag (114 bpm). Physician evaluation required prior to phlebotomy.,Dr. R. Kavitha
-SCR-9149,DON-1149,Dinesh Thangaraj,2026-10-01 01:00:00,37.2,86,97,116,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9150,DON-1150,Pavithra Viswanathan,2026-09-30 08:00:00,36.4,81,100,117,85,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9151,DON-1151,Divya Rajendran,2026-10-05 17:00:00,37.0,86,97,161,102,1,Temporary Deferral and Reassessment,Hypertension flag (161/102 mmHg). Rest period suggested.,Technician M. Balaji
-SCR-9152,DON-1152,Bhuvaneshwari Krishnan,2026-10-07 12:00:00,36.9,80,100,129,81,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
-SCR-9153,DON-1153,Janani Murugesan,2026-10-09 17:00:00,36.3,66,96,129,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9154,DON-1154,Murugan Sundaram,2026-10-06 13:00:00,37.0,66,96,130,77,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9155,DON-1155,Divya Venkatesan,2026-10-02 08:00:00,36.4,89,100,135,75,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
-SCR-9156,DON-1156,Murugan Kandasamy,2026-09-29 02:00:00,37.1,71,96,120,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9157,DON-1157,Archana Murugesan,2026-09-28 05:00:00,36.5,89,99,165,105,1,Temporary Deferral and Reassessment,Hypertension flag (165/105 mmHg). Rest period suggested.,Technician M. Balaji
-SCR-9158,DON-1158,Vignesh Subramanian,2026-09-28 08:00:00,36.5,85,97,117,82,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
-SCR-9159,DON-1159,Ganesh Palanisamy,2026-10-06 00:00:00,37.0,65,99,109,81,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
-SCR-9160,DON-1160,Surya Thangaraj,2026-10-07 05:00:00,36.3,79,97,155,103,1,Temporary Deferral and Reassessment,Hypertension flag (155/103 mmHg). Rest period suggested.,Dr. K. Senthil Kumar
+SCR-9001,DON-1001,Dharanidharan Baskar,2026-10-04 19:00:00,36.9,72,100,121,82,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9002,DON-1002,Karthik Subramanian,2026-10-06 01:00:00,36.7,88,94,116,77,1,Temporary Deferral and Reassessment,SpO2 below target (94%). Deferral recommended.,Dr. R. Kavitha
+SCR-9003,DON-1003,Priya Venkatesan,2026-10-01 16:00:00,36.5,121,96,128,71,1,Medical Review Required,Tachycardia flag (121 bpm). Physician evaluation required prior to phlebotomy.,Nurse S. Revathi
+SCR-9004,DON-1004,Senthil Nathan Raman,2026-10-02 04:00:00,36.8,70,99,124,78,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9005,DON-1005,Deepa Natarajan,2026-10-07 13:00:00,37.1,81,97,134,77,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9006,DON-1006,Vignesh Gounder,2026-10-03 07:00:00,36.4,76,97,158,103,1,Temporary Deferral and Reassessment,Hypertension flag (158/103 mmHg). Rest period suggested.,Nurse S. Revathi
+SCR-9007,DON-1007,Gayathri Mudaliar,2026-09-27 17:00:00,36.5,82,100,130,73,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9008,DON-1008,Anand Raman,2026-10-03 20:00:00,37.1,84,96,160,96,1,Temporary Deferral and Reassessment,Hypertension flag (160/96 mmHg). Rest period suggested.,Nurse S. Revathi
+SCR-9009,DON-1009,Saravanan Palanisamy,2026-10-01 19:00:00,36.8,77,99,129,83,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9010,DON-1010,Divya Murugesan,2026-09-29 13:00:00,36.3,89,97,119,70,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Technician M. Balaji
+SCR-9011,DON-1011,Kumar Pillai,2026-10-05 04:00:00,36.5,76,100,131,83,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9012,DON-1012,Kavitha Sundaram,2026-10-04 06:00:00,37.1,73,100,134,69,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9013,DON-1013,Ganesh Kandasamy,2026-09-30 22:00:00,36.6,106,99,118,75,1,Medical Review Required,Tachycardia flag (106 bpm). Physician evaluation required prior to phlebotomy.,Dr. R. Kavitha
+SCR-9014,DON-1014,Prakash Shanmugam,2026-10-07 11:00:00,36.5,87,100,130,79,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9015,DON-1015,Vijay Natarajan,2026-10-07 00:00:00,37.1,87,96,126,79,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9016,DON-1016,Revathi Subramanian,2026-10-03 02:00:00,36.6,80,98,135,84,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9017,DON-1017,Suresh Babu Krishnan,2026-10-01 05:00:00,37.3,89,97,130,72,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9018,DON-1018,Pavithra Rajendran,2026-10-03 03:00:00,37.1,83,99,123,72,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9019,DON-1019,Dinesh Chettiar,2026-10-01 23:00:00,36.9,90,96,120,84,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9020,DON-1020,Nandhini Kandasamy,2026-09-30 07:00:00,36.6,62,96,131,82,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9021,DON-1021,Ramesh Chandrasekaran,2026-09-28 14:00:00,37.3,88,97,123,76,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9022,DON-1022,Murugan Thangaraj,2026-10-02 19:00:00,36.4,89,99,133,78,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9023,DON-1023,Meena Rajendran,2026-10-07 21:00:00,37.1,62,96,135,73,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9024,DON-1024,Balaji Viswanathan,2026-10-09 23:00:00,36.7,84,97,128,77,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9025,DON-1025,Aarthi Krishnan,2026-10-08 00:00:00,36.6,73,97,109,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9026,DON-1026,Deepa Viswanathan,2026-09-30 20:00:00,37.0,62,97,123,70,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9027,DON-1027,Saravanan Murugesan,2026-09-28 22:00:00,36.3,84,98,134,71,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9028,DON-1028,Meena Palanisamy,2026-09-29 19:00:00,36.4,90,92,113,75,1,Temporary Deferral and Reassessment,SpO2 below target (92%). Deferral recommended.,Technician M. Balaji
+SCR-9029,DON-1029,Pavithra Ganesan,2026-10-07 01:00:00,37.1,89,97,128,72,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9030,DON-1030,Balaji Chandrasekaran,2026-10-06 11:00:00,37.0,82,97,121,82,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9031,DON-1031,Pavithra Naidu,2026-10-07 20:00:00,38.4,77,98,123,75,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 38.4°C). Temporarily deferred for 14 days.,Nurse S. Revathi
+SCR-9032,DON-1032,Priya Sundaram,2026-10-04 02:00:00,36.5,81,100,131,77,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9033,DON-1033,Vignesh Naidu,2026-10-05 14:00:00,36.8,85,99,117,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9034,DON-1034,Gayathri Venkatesan,2026-10-01 18:00:00,36.9,67,92,110,75,1,Temporary Deferral and Reassessment,SpO2 below target (92%). Deferral recommended.,Nurse S. Revathi
+SCR-9035,DON-1035,Janani Venkatesan,2026-10-01 17:00:00,36.9,73,100,129,73,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9036,DON-1036,Priya Ganesan,2026-10-09 15:00:00,36.3,68,96,109,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9037,DON-1037,Pavithra Venkatesan,2026-09-30 23:00:00,36.4,79,100,127,72,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9038,DON-1038,Janani Kandasamy,2026-10-03 09:00:00,37.3,122,100,120,76,1,Medical Review Required,Tachycardia flag (122 bpm). Physician evaluation required prior to phlebotomy.,Dr. K. Senthil Kumar
+SCR-9039,DON-1039,Saravanan Raman,2026-10-03 09:00:00,37.0,89,97,109,75,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9040,DON-1040,Aarthi Shanmugam,2026-10-07 12:00:00,36.9,71,97,111,68,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9041,DON-1041,Gayathri Rajendran,2026-10-06 12:00:00,36.6,78,98,113,79,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9042,DON-1042,Vijay Ganesan,2026-10-07 11:00:00,36.3,87,99,116,84,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9043,DON-1043,Pavithra Sundaram,2026-09-27 16:00:00,36.8,78,98,109,83,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9044,DON-1044,Prabhu Shanmugam,2026-10-06 15:00:00,36.4,80,96,115,84,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9045,DON-1045,Pavithra Chettiar,2026-10-09 17:00:00,36.7,69,93,111,78,1,Temporary Deferral and Reassessment,SpO2 below target (93%). Deferral recommended.,Nurse S. Revathi
+SCR-9046,DON-1046,Priya Pillai,2026-10-03 03:00:00,36.6,67,100,161,104,1,Temporary Deferral and Reassessment,Hypertension flag (161/104 mmHg). Rest period suggested.,Dr. K. Senthil Kumar
+SCR-9047,DON-1047,Nandhini Viswanathan,2026-10-06 04:00:00,37.3,77,96,124,83,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Technician M. Balaji
+SCR-9048,DON-1048,Meena Chandrasekaran,2026-10-03 08:00:00,36.9,62,98,114,77,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9049,DON-1049,Archana Mudaliar,2026-09-30 02:00:00,37.3,86,97,131,85,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9050,DON-1050,Murugan Venkatesan,2026-10-09 20:00:00,36.3,79,98,128,68,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9051,DON-1051,Pavithra Murugesan,2026-10-01 23:00:00,37.0,65,97,124,75,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9052,DON-1052,Suresh Shanmugam,2026-10-08 17:00:00,36.4,70,96,109,75,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9053,DON-1053,Anand Raman,2026-09-30 05:00:00,36.4,65,100,112,80,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9054,DON-1054,Karthik Sundaram,2026-09-30 17:00:00,36.4,71,98,135,78,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9055,DON-1055,Anand Murugesan,2026-10-03 05:00:00,36.5,92,97,112,71,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9056,DON-1056,Nandhini Venkatesan,2026-10-06 11:00:00,36.6,65,100,119,74,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9057,DON-1057,Vijay Viswanathan,2026-09-30 02:00:00,36.4,67,98,134,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9058,DON-1058,Surya Shanmugam,2026-10-06 20:00:00,37.3,113,100,111,80,1,Medical Review Required,Tachycardia flag (113 bpm). Physician evaluation required prior to phlebotomy.,Technician M. Balaji
+SCR-9059,DON-1059,Bhuvaneshwari Raman,2026-10-06 06:00:00,37.2,82,93,117,71,1,Temporary Deferral and Reassessment,SpO2 below target (93%). Deferral recommended.,Dr. K. Senthil Kumar
+SCR-9060,DON-1060,Santhosh Thangaraj,2026-10-07 00:00:00,38.1,72,97,116,83,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 38.1°C). Temporarily deferred for 14 days.,Dr. K. Senthil Kumar
+SCR-9061,DON-1061,Preethi Naidu,2026-09-27 13:00:00,37.2,64,96,110,74,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9062,DON-1062,Manikandan Murugesan,2026-10-08 00:00:00,37.1,72,96,109,82,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9063,DON-1063,Balaji Murugesan,2026-09-27 18:00:00,37.0,77,96,120,81,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9064,DON-1064,Kumar Kandasamy,2026-10-05 10:00:00,36.6,76,97,109,75,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9065,DON-1065,Nandhini Murugesan,2026-10-01 05:00:00,36.8,64,98,120,72,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9066,DON-1066,Rajesh Pillai,2026-09-28 18:00:00,37.1,77,98,125,78,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Dr. R. Kavitha
+SCR-9067,DON-1067,Lakshmi Gounder,2026-10-02 15:00:00,36.8,74,98,113,68,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9068,DON-1068,Swetha Gounder,2026-10-09 08:00:00,37.1,63,99,124,79,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9069,DON-1069,Revathi Gounder,2026-10-07 20:00:00,36.6,116,96,117,79,1,Medical Review Required,Tachycardia flag (116 bpm). Physician evaluation required prior to phlebotomy.,Technician M. Balaji
+SCR-9070,DON-1070,Ashok Natarajan,2026-10-06 07:00:00,36.6,88,98,128,70,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Technician M. Balaji
+SCR-9071,DON-1071,Ashok Kandasamy,2026-09-27 21:00:00,36.9,68,99,125,77,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9072,DON-1072,Karthik Rajendran,2026-10-09 04:00:00,36.9,114,100,125,70,1,Medical Review Required,Tachycardia flag (114 bpm). Physician evaluation required prior to phlebotomy.,Nurse S. Revathi
+SCR-9073,DON-1073,Revathi Thangaraj,2026-10-07 05:00:00,36.5,87,98,109,68,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9074,DON-1074,Ashok Raman,2026-10-07 15:00:00,37.2,92,96,119,80,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9075,DON-1075,Vignesh Viswanathan,2026-10-03 13:00:00,37.3,85,99,133,83,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9076,DON-1076,Prabhu Raman,2026-09-28 00:00:00,37.2,87,98,115,73,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9077,DON-1077,Nandhini Shanmugam,2026-10-03 17:00:00,37.9,83,99,128,70,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 37.9°C). Temporarily deferred for 14 days.,Technician M. Balaji
+SCR-9078,DON-1078,Janani Venkatesan,2026-10-05 06:00:00,36.4,77,97,118,70,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9079,DON-1079,Ramesh Natarajan,2026-10-03 04:00:00,38.0,86,98,124,70,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 38.0°C). Temporarily deferred for 14 days.,Nurse S. Revathi
+SCR-9080,DON-1080,Ashok Thangaraj,2026-10-08 13:00:00,37.1,85,96,109,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9081,DON-1081,Archana Krishnan,2026-10-06 10:00:00,36.8,74,98,125,80,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9082,DON-1082,Nisha Palanisamy,2026-09-27 16:00:00,37.0,67,99,110,69,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9083,DON-1083,Surya Chettiar,2026-10-03 04:00:00,36.4,72,97,120,73,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9084,DON-1084,Karthik Gounder,2026-10-02 18:00:00,36.9,77,96,121,73,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9085,DON-1085,Senthil Murugesan,2026-10-08 20:00:00,37.3,125,100,127,74,1,Medical Review Required,Tachycardia flag (125 bpm). Physician evaluation required prior to phlebotomy.,Technician M. Balaji
+SCR-9086,DON-1086,Pavithra Chandrasekaran,2026-10-03 15:00:00,38.1,82,99,114,70,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 38.1°C). Temporarily deferred for 14 days.,Dr. R. Kavitha
+SCR-9087,DON-1087,Ashok Venkatesan,2026-10-08 03:00:00,37.0,81,99,114,71,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9088,DON-1088,Ramesh Murugesan,2026-10-06 08:00:00,37.3,77,96,117,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9089,DON-1089,Murugan Krishnan,2026-10-04 08:00:00,36.7,76,99,121,72,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Dr. R. Kavitha
+SCR-9090,DON-1090,Prabhu Sundaram,2026-10-09 01:00:00,36.8,69,98,126,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9091,DON-1091,Nandhini Sundaram,2026-10-08 04:00:00,37.1,75,100,115,85,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9092,DON-1092,Sangeetha Pillai,2026-09-28 20:00:00,36.8,89,99,126,75,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9093,DON-1093,Senthil Venkatesan,2026-10-08 07:00:00,37.2,63,100,126,84,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9094,DON-1094,Saravanan Murugesan,2026-09-30 10:00:00,37.3,117,97,114,70,1,Medical Review Required,Tachycardia flag (117 bpm). Physician evaluation required prior to phlebotomy.,Dr. K. Senthil Kumar
+SCR-9095,DON-1095,Deepa Naidu,2026-09-30 17:00:00,37.1,116,98,112,71,1,Medical Review Required,Tachycardia flag (116 bpm). Physician evaluation required prior to phlebotomy.,Dr. R. Kavitha
+SCR-9096,DON-1096,Deepa Kandasamy,2026-09-28 05:00:00,36.6,76,96,133,84,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9097,DON-1097,Gayathri Chandrasekaran,2026-10-01 03:00:00,36.9,89,96,113,79,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Dr. K. Senthil Kumar
+SCR-9098,DON-1098,Revathi Pillai,2026-10-03 21:00:00,37.2,90,99,116,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9099,DON-1099,Senthil Chettiar,2026-10-09 04:00:00,36.4,84,92,111,76,1,Temporary Deferral and Reassessment,SpO2 below target (92%). Deferral recommended.,Nurse S. Revathi
+SCR-9100,DON-1100,Sowmya Naidu,2026-10-08 22:00:00,37.2,90,98,108,78,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9101,DON-1101,Ashok Kandasamy,2026-10-04 00:00:00,37.2,83,96,135,75,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9102,DON-1102,Revathi Naidu,2026-09-30 13:00:00,36.6,85,99,127,70,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9103,DON-1103,Ganesh Murugesan,2026-10-05 11:00:00,36.7,77,100,135,79,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9104,DON-1104,Aarthi Murugesan,2026-10-08 14:00:00,36.8,66,100,126,68,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9105,DON-1105,Ramesh Mudaliar,2026-10-05 17:00:00,36.5,76,96,119,74,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9106,DON-1106,Karthik Murugesan,2026-09-30 02:00:00,36.9,65,96,115,79,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9107,DON-1107,Bhuvaneshwari Naidu,2026-10-06 05:00:00,36.8,79,98,119,73,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9108,DON-1108,Rajesh Subramanian,2026-10-03 22:00:00,38.0,83,97,117,80,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 38.0°C). Temporarily deferred for 14 days.,Nurse S. Revathi
+SCR-9109,DON-1109,Arun Gounder,2026-10-04 06:00:00,36.8,89,96,123,72,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9110,DON-1110,Divya Natarajan,2026-10-05 05:00:00,37.1,71,98,121,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9111,DON-1111,Aarthi Naidu,2026-10-04 14:00:00,37.0,84,99,145,102,1,Temporary Deferral and Reassessment,Hypertension flag (145/102 mmHg). Rest period suggested.,Technician M. Balaji
+SCR-9112,DON-1112,Vijay Kandasamy,2026-09-28 00:00:00,36.9,71,96,123,70,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9113,DON-1113,Divya Ganesan,2026-10-03 01:00:00,36.6,84,98,114,72,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9114,DON-1114,Nandhini Chettiar,2026-10-01 09:00:00,37.0,85,96,128,83,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9115,DON-1115,Ganesh Natarajan,2026-10-01 01:00:00,37.0,80,100,134,74,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9116,DON-1116,Dinesh Chettiar,2026-09-28 14:00:00,36.8,92,98,124,77,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9117,DON-1117,Karthik Pillai,2026-10-03 17:00:00,37.0,114,100,115,80,1,Medical Review Required,Tachycardia flag (114 bpm). Physician evaluation required prior to phlebotomy.,Dr. K. Senthil Kumar
+SCR-9118,DON-1118,Ramesh Mudaliar,2026-10-05 06:00:00,37.0,71,99,133,78,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9119,DON-1119,Anand Pillai,2026-09-27 12:00:00,37.2,77,96,135,70,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9120,DON-1120,Ashok Rajendran,2026-09-29 07:00:00,36.8,78,91,114,72,1,Temporary Deferral and Reassessment,SpO2 below target (91%). Deferral recommended.,Technician M. Balaji
+SCR-9121,DON-1121,Archana Natarajan,2026-10-01 06:00:00,37.2,76,97,118,73,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9122,DON-1122,Karthik Palanisamy,2026-10-02 21:00:00,36.5,82,96,108,82,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9123,DON-1123,Saravanan Chettiar,2026-10-06 09:00:00,36.5,87,96,112,81,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9124,DON-1124,Rajesh Sundaram,2026-09-30 20:00:00,36.7,63,100,114,79,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9125,DON-1125,Archana Rajendran,2026-09-28 16:00:00,37.9,72,97,121,74,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 37.9°C). Temporarily deferred for 14 days.,Dr. R. Kavitha
+SCR-9126,DON-1126,Anand Rajendran,2026-09-29 06:00:00,36.5,88,96,117,77,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9127,DON-1127,Sowmya Palanisamy,2026-09-30 17:00:00,37.3,72,99,119,74,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9128,DON-1128,Priya Chandrasekaran,2026-10-09 14:00:00,36.5,107,100,126,72,1,Medical Review Required,Tachycardia flag (107 bpm). Physician evaluation required prior to phlebotomy.,Technician M. Balaji
+SCR-9129,DON-1129,Saravanan Chandrasekaran,2026-10-09 04:00:00,36.9,86,100,127,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9130,DON-1130,Deepa Raman,2026-10-09 13:00:00,38.2,77,96,127,74,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 38.2°C). Temporarily deferred for 14 days.,Nurse S. Revathi
+SCR-9131,DON-1131,Preethi Sundaram,2026-10-05 14:00:00,36.9,71,99,129,71,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9132,DON-1132,Sangeetha Kandasamy,2026-10-01 01:00:00,36.4,85,100,111,77,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9133,DON-1133,Suresh Krishnan,2026-09-29 09:00:00,37.1,117,97,121,81,1,Medical Review Required,Tachycardia flag (117 bpm). Physician evaluation required prior to phlebotomy.,Technician M. Balaji
+SCR-9134,DON-1134,Manikandan Mudaliar,2026-10-06 13:00:00,37.2,87,90,120,73,1,Temporary Deferral and Reassessment,SpO2 below target (90%). Deferral recommended.,Dr. K. Senthil Kumar
+SCR-9135,DON-1135,Saravanan Thangaraj,2026-10-08 02:00:00,37.1,83,99,112,70,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9136,DON-1136,Divya Chettiar,2026-10-04 12:00:00,36.8,71,98,122,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9137,DON-1137,Pavithra Naidu,2026-10-09 03:00:00,36.7,83,98,121,71,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9138,DON-1138,Sangeetha Rajendran,2026-10-09 19:00:00,37.0,67,98,119,82,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9139,DON-1139,Revathi Pillai,2026-10-02 01:00:00,36.5,74,99,122,76,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9140,DON-1140,Suresh Palanisamy,2026-10-01 00:00:00,37.1,65,97,130,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9141,DON-1141,Balaji Viswanathan,2026-10-01 02:00:00,36.8,80,99,113,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9142,DON-1142,Ganesh Rajendran,2026-10-07 05:00:00,36.8,90,99,122,69,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9143,DON-1143,Senthil Palanisamy,2026-10-03 07:00:00,37.1,83,100,117,80,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Technician M. Balaji
+SCR-9144,DON-1144,Gayathri Sundaram,2026-09-28 22:00:00,37.0,65,99,129,75,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9145,DON-1145,Priya Raman,2026-10-01 18:00:00,37.2,84,96,110,80,0,Medical Review Required,Recent medication / travel flag in health questionnaire. Requires medical clearance.,Nurse S. Revathi
+SCR-9146,DON-1146,Lakshmi Krishnan,2026-09-29 05:00:00,37.2,89,97,110,83,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9147,DON-1147,Anand Thangaraj,2026-10-02 22:00:00,36.4,69,100,128,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9148,DON-1148,Sowmya Raman,2026-10-08 07:00:00,37.1,76,96,135,83,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9149,DON-1149,Gayathri Pillai,2026-10-07 11:00:00,37.0,62,96,120,81,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. K. Senthil Kumar
+SCR-9150,DON-1150,Manikandan Sundaram,2026-10-08 01:00:00,37.3,82,98,124,85,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9151,DON-1151,Divya Palanisamy,2026-10-02 17:00:00,36.4,69,99,118,85,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9152,DON-1152,Balaji Pillai,2026-09-30 08:00:00,36.3,115,98,127,78,1,Medical Review Required,Tachycardia flag (115 bpm). Physician evaluation required prior to phlebotomy.,Dr. K. Senthil Kumar
+SCR-9153,DON-1153,Kavitha Chettiar,2026-10-09 00:00:00,36.8,88,99,111,76,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9154,DON-1154,Anand Subramanian,2026-10-07 10:00:00,36.7,76,97,130,78,1,No Initial Warning Detected,Vital signs within normal physiological ranges. Donor fit for standard donation.,Dr. R. Kavitha
+SCR-9155,DON-1155,Nisha Naidu,2026-10-09 00:00:00,37.1,80,96,132,82,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9156,DON-1156,Vijay Chandrasekaran,2026-09-29 08:00:00,38.2,78,100,125,84,1,Temporary Deferral and Reassessment,Fever flag detected (Temp: 38.2°C). Temporarily deferred for 14 days.,Nurse S. Revathi
+SCR-9157,DON-1157,Janani Murugesan,2026-09-27 15:00:00,36.4,114,100,129,84,1,Medical Review Required,Tachycardia flag (114 bpm). Physician evaluation required prior to phlebotomy.,Dr. R. Kavitha
+SCR-9158,DON-1158,Vijay Naidu,2026-10-01 01:00:00,37.2,86,97,116,80,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Technician M. Balaji
+SCR-9159,DON-1159,Divya Rajendran,2026-09-30 08:00:00,36.4,81,100,117,85,1,Screening Completed,Vital signs within normal physiological ranges. Donor fit for standard donation.,Nurse S. Revathi
+SCR-9160,DON-1160,Bhuvaneshwari Krishnan,2026-10-05 17:00:00,37.0,86,97,161,102,1,Temporary Deferral and Reassessment,Hypertension flag (161/102 mmHg). Rest period suggested.,Technician M. Balaji
