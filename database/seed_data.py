@@ -80,7 +80,7 @@ HOSPITALS_DATA = [
 
 # Curated List of Real Verified Tamil Nadu Donors
 REAL_DONORS_MASTER = [
-    {"name": "Dharanidharan Baskar", "blood_group": "O+", "age": 24, "contact_number": "+91-98421-72314", "city_locality": "Karur (Gandhigramam)", "lat": 10.9521, "lon": 78.0721, "status": "Available", "donations": 8, "email": "dharani.baskar@medipulse.in"},
+    {"name": "Danasekar", "blood_group": "O+", "age": 24, "contact_number": "+91-98421-72314", "city_locality": "Karur (Gandhigramam)", "lat": 10.9521, "lon": 78.0721, "status": "Available", "donations": 8, "email": "danasekar@medipulse.in"},
     {"name": "Karthik Subramanian", "blood_group": "A+", "age": 29, "contact_number": "+91-94432-81920", "city_locality": "Karur (Thanthonimalai)", "lat": 10.9250, "lon": 78.0850, "status": "Available", "donations": 14, "email": "karthik.subramanian@gmail.com"},
     {"name": "Priya Venkatesan", "blood_group": "O-", "age": 26, "contact_number": "+91-98943-45129", "city_locality": "Karur (Vengamedu)", "lat": 10.9712, "lon": 78.0645, "status": "Available", "donations": 6, "email": "priya.venkat26@gmail.com"},
     {"name": "Senthil Nathan Raman", "blood_group": "B+", "age": 34, "contact_number": "+91-94864-10293", "city_locality": "Karur (Pasupathipalayam)", "lat": 10.9654, "lon": 78.0921, "status": "Available", "donations": 11, "email": "senthil.nathan@outlook.com"},
