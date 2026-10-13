@@ -516,3 +516,15 @@ div[data-testid="stDataFrame"] {
     text-decoration: none !important;
 }
 
+/* Force MEDIPULSE AI - TAMILNADU in Vibrant Medical Green */
+.medipulse-green-title,
+.medipulse-green-title *,
+h1.medipulse-green-title,
+span.medipulse-green-title {
+    color: #10B981 !important;
+    -webkit-text-fill-color: #10B981 !important;
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.6) !important;
+    font-weight: 800 !important;
+}
+
+

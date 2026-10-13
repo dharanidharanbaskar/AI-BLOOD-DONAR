@@ -416,8 +416,8 @@ st.markdown("""
                 🩸
             </div>
             <div>
-                <h1 style="margin:0; color:#10B981 !important; font-size:2.1rem; font-weight:800; letter-spacing:-0.5px; text-shadow:0 0 25px rgba(16,185,129,0.5);">
-                    <span style="color:#10B981 !important;">MEDIPULSE AI - TAMILNADU</span>
+                <h1 class="medipulse-green-title" style="margin:0; color:#10B981 !important; -webkit-text-fill-color:#10B981 !important; font-size:2.1rem; font-weight:800; letter-spacing:-0.5px; text-shadow:0 0 25px rgba(16,185,129,0.7);">
+                    <span class="medipulse-green-title" style="color:#10B981 !important; -webkit-text-fill-color:#10B981 !important;">MEDIPULSE AI - TAMILNADU</span>
                 </h1>
                 <p style="margin:4px 0 0 0; color:#CBD5E1 !important; font-size:1.05rem;">
                     Emergency Blood Donor Finder & Pre-Donation Health Screening Dashboard
