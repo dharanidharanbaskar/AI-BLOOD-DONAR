@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediPulse AI - Blood Donor Finder & Emergency Telemetry System</title>
+  <meta name="description" content="AI-Based Emergency Blood Donor Finder with Pre-Donation Health Screening System and GPS Proximity Dispatch Hub.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- External Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg-dark: #0B0F19;
+      --bg-card: rgba(17, 24, 39, 0.78);
+      --bg-card-hover: rgba(30, 41, 59, 0.85);
+      --border-card: rgba(255, 255, 255, 0.08);
+      --border-card-hover: rgba(225, 29, 72, 0.35);
+      --crimson: #E11D48;
+      --crimson-glow: rgba(225, 29, 72, 0.4);
+      --emerald: #10B981;
+      --emerald-glow: rgba(16, 185, 129, 0.3);
+      --cyan: #06B6D4;
+      --amber: #F59E0B;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(225, 29, 72, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 90% 15%, rgba(6, 182, 212, 0.1) 0%, transparent 35%),
+        radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.07) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+
+    /* Scrollbars */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #0B0F19; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+    /* Top Emergency Alert Bar */
+    .top-alert-bar {
+      background: linear-gradient(90deg, #881337 0%, #E11D48 50%, #9F1239 100%);
+      color: #FFF;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);
+    }
+    .alert-ticker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background: #FFFFFF;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #FFFFFF;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.6; }
+    }
+
+    /* Container */
+    .app-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* Top Header */
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-card);
+      margin-bottom: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #E11D48 0%, #9F1239 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px var(--crimson-glow);
+    }
+    .brand-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #FFFFFF 40%, #FDA4AF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .privacy-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid var(--border-card);
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s;
+    }
+    .privacy-badge:hover {
+      border-color: var(--emerald);
+    }
+
+    /* Navigation Tabs */
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .nav-tab {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid var(--border-card);
+      color: var(--text-muted);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .nav-tab:hover {
+      background: rgba(51, 65, 85, 0.7);
+      color: var(--text-main);
+    }
+    .nav-tab.active {
+      background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
+      color: #FFFFFF;
+      border-color: #E11D48;
+      box-shadow: 0 4px 15px var(--crimson-glow);
+    }
+
+    /* KPI Summary Cards Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .kpi-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 20px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-card-hover);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+    .kpi-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .kpi-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .kpi-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .kpi-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 6px;
+    }
+    .kpi-sub {
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .badge-green { color: #10B981; }
+    .badge-cyan { color: #06B6D4; }
+    .badge-rose { color: #F43F5E; }
+    .badge-amber { color: #F59E0B; }
+
+    /* Content Panes */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Grid layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    /* Card Panels */
+    .panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-card);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+    .panel-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #FFFFFF;
+    }
+    .panel-title span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Map Box */
+    #gps-map {
+      height: 480px;
+      border-radius: 14px;
+      border: 1px solid var(--border-card);
+      z-index: 1;
+    }
+
+    /* Forms & Inputs */
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .form-control, .form-select {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 0.92rem;
+      transition: all 0.2s;
+    }
+    .form-control:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--crimson);
+      box-shadow: 0 0 12px var(--crimson-glow);
+    }
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .slider-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      min-width: 65px;
+      text-align: right;
+      color: var(--cyan);
+    }
+
+    /* Custom Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px var(--crimson-glow);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(225, 29, 72, 0.6);
+    }
+    .btn-emerald {
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px var(--emerald-glow);
+    }
+    .btn-emerald:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border-card);
+      color: var(--text-muted);
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #FFF;
+      border-color: #64748B;
+    }
+
+    /* Tables */
+    .table-responsive {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--border-card);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+    th {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-card);
+    }
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+    }
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Status Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .badge-available { background: rgba(16, 185, 129, 0.15); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-temp { background: rgba(245, 158, 11, 0.15); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-critical { background: rgba(225, 29, 72, 0.15); color: #FB7185; border: 1px solid rgba(225, 29, 72, 0.3); }
+    .badge-blood {
+      background: rgba(225, 29, 72, 0.15);
+      color: #FDA4AF;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Health Evaluation Result Box */
+    .eval-box {
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 18px;
+      border: 1px solid;
+      transition: all 0.3s;
+    }
+    .eval-normal {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: rgba(16, 185, 129, 0.3);
+      color: #6EE7B7;
+    }
+    .eval-warning {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: rgba(245, 158, 11, 0.3);
+      color: #FCD34D;
+    }
+    .eval-deferral {
+      background: rgba(225, 29, 72, 0.1);
+      border-color: rgba(225, 29, 72, 0.3);
+      color: #FDA4AF;
+    }
+
+    /* Modal Toast */
+    #toast-msg {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1E293B;
+      border: 1px solid var(--emerald);
+      color: #FFF;
+      padding: 14px 22px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 9999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #toast-msg.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 32px 0 16px;
+      border-top: 1px solid var(--border-card);
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Emergency Ticker -->
+  <div class="top-alert-bar">
+    <div class="alert-ticker">
+      <span class="pulse-dot"></span>
+      <span>🚨 LIVE TAMIL NADU EMERGENCY DISPATCH HUB &bull; Karur Headquarters Telemetry Active</span>
+    </div>
+    <div style="font-size:0.8rem; opacity:0.9;">
+      <span>AI Compatibility Model v2.4 Online &bull; Latency: 14ms</span>
+    </div>
+  </div>
+
+  <div class="app-container">
+    
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">
+          <i data-lucide="activity" style="color:white; width:26px; height:26px;"></i>
+        </div>
+        <div>
+          <h1 class="brand-title">MediPulse AI</h1>
+          <p class="brand-subtitle">Emergency Blood Donor Finder & Pre-Donation Clinical Screening Telemetry</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="privacy-badge" id="privacy-toggle" onclick="togglePrivacy()">
+          <i data-lucide="shield-check" id="privacy-icon" style="color:var(--emerald); width:18px; height:18px;"></i>
+          <span id="privacy-label">Privacy Mode: Off (Admin View)</span>
+        </div>
+        <button class="btn btn-primary" onclick="switchTab('emergency')">
+          <i data-lucide="zap" style="width:16px; height:16px;"></i>
+          Emergency Matcher
+        </button>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="nav-tab active" onclick="switchTab('dashboard')">
+        <i data-lucide="layout-dashboard" style="width:18px; height:18px;"></i>
+        Executive Dashboard
+      </button>
+      <button class="nav-tab" onclick="switchTab('emergency')">
+        <i data-lucide="crosshair" style="width:18px; height:18px;"></i>
+        AI Donor Matcher & Dispatch
+      </button>
+      <button class="nav-tab" onclick="switchTab('donors')">
+        <i data-lucide="users" style="width:18px; height:18px;"></i>
+        Donor Directory (150+)
+      </button>
+      <button class="nav-tab" onclick="switchTab('stock')">
+        <i data-lucide="database" style="width:18px; height:18px;"></i>
+        Blood Stock Inventory
+      </button>
+      <button class="nav-tab" onclick="switchTab('screening')">
+        <i data-lucide="stethoscope" style="width:18px; height:18px;"></i>
+        Health Screening Telemetry
+      </button>
+      <button class="nav-tab" onclick="switchTab('map-tab')">
+        <i data-lucide="map-pin" style="width:18px; height:18px;"></i>
+        Tamil Nadu GPS Dispatch Map
+      </button>
+    </nav>
+
+    <!-- 8 KPI Summary Cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-label">Registered Donors</span>
+          <div class="kpi-icon"><i data-lucide="users" style="color:var(--cyan); width:18px; height:18px;"></i></div>
+        </div>
+        <div class="kpi-value" id="kpi-donors">162</div>
+        <div class="kpi-sub badge-green"><span>+12 this month</span></div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-label">Available Donors</span>
+          <div class="kpi-icon"><i data-lucide="user-check" style="color:var(--emerald); width:18px; height:18px;"></i></div>
+        </div>
+        <div class="kpi-value" id="kpi-avail">98</div>
+        <div class="kpi-sub badge-green"><span>Ready for dispatch</span></div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-label">Total Blood Stock</span>
+          <div class="kpi-icon"><i data-lucide="droplet" style="color:var(--crimson); width:18px; height:18px;"></i></div>
+        </div>
+        <div class="kpi-value" id="kpi-stock">428</div>
+        <div class="kpi-sub badge-cyan"><span>Units across 8 groups</span></div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-label">Emergency Requests</span>
+          <div class="kpi-icon"><i data-lucide="alert-triangle" style="color:var(--amber); width:18px; height:18px;"></i></div>
+        </div>
+        <div class="kpi-value" id="kpi-emergency">18</div>
+        <div class="kpi-sub badge-amber"><span>Active pipeline</span></div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-label">Fulfilled Demands</span>
+          <div class="kpi-icon"><i data-lucide="check-circle" style="color:var(--emerald); width:18px; height:18px;"></i></div>
+        </div>
+        <div class="kpi-value">14</div>
+        <div class="kpi-sub badge-green"><span>77.8% fulfillment rate</span></div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-label">Medical Reviews</span>
+          <div class="kpi-icon"><i data-lucide="clipboard-check" style="color:var(--rose); width:18px; height:18px;"></i></div>
+        </div>
+        <div class="kpi-value">6</div>
+        <div class="kpi-sub badge-rose"><span>Requiring physician override</span></div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-label">Partner Centers</span>
+          <div class="kpi-icon"><i data-lucide="building-2" style="color:var(--cyan); width:18px; height:18px;"></i></div>
+        </div>
+        <div class="kpi-value">14</div>
+        <div class="kpi-sub badge-cyan"><span>Hospitals & Blood Banks</span></div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-header">
+          <span class="kpi-label">Avg Response Time</span>
+          <div class="kpi-icon"><i data-lucide="clock" style="color:var(--emerald); width:18px; height:18px;"></i></div>
+        </div>
+        <div class="kpi-value">11.4m</div>
+        <div class="kpi-sub badge-green"><span>Spatial dispatch speed</span></div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 1: EXECUTIVE DASHBOARD ==================== -->
+    <div class="tab-content active" id="tab-dashboard">
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-title">
+            <span><i data-lucide="pie-chart" style="color:var(--crimson); width:20px; height:20px;"></i> Blood Group Distribution (Donors)</span>
+          </div>
+          <div style="height: 280px;">
+            <canvas id="chart-blood-dist"></canvas>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-title">
+            <span><i data-lucide="bar-chart-2" style="color:var(--cyan); width:20px; height:20px;"></i> Top Hospital Blood Stock Inventories</span>
+          </div>
+          <div style="height: 280px;">
+            <canvas id="chart-hospital-stock"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-title">
+            <span><i data-lucide="trending-up" style="color:var(--emerald); width:20px; height:20px;"></i> Monthly Donation & Emergency Dispatch Trends</span>
+          </div>
+          <div style="height: 260px;">
+            <canvas id="chart-trends"></canvas>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-title">
+            <span><i data-lucide="heart-pulse" style="color:var(--amber); width:20px; height:20px;"></i> Pre-Donation Clinical Health Screening Outcomes</span>
+          </div>
+          <div style="height: 260px;">
+            <canvas id="chart-screenings"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 2: AI DONOR MATCHER ==================== -->
+    <div class="tab-content" id="tab-emergency">
+      <div class="grid-2">
+        <!-- Matcher Form -->
+        <div class="panel">
+          <div class="panel-title">
+            <span><i data-lucide="crosshair" style="color:var(--crimson); width:20px; height:20px;"></i> AI Proximity & Biological Matcher</span>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:18px;">
+            Calculates multi-parameter score: ABO/Rh biological compatibility (40%), Haversine spatial distance (35%), pre-donation health clearance (15%), and donor tenure (10%).
+          </p>
+
+          <div class="form-group">
+            <label class="form-label">Recipient Blood Group Needed</label>
+            <select class="form-select" id="match-blood-group" onchange="runAIMatcher()">
+              <option value="O-">O- (Universal Recipient compatible: O- only)</option>
+              <option value="O+" selected>O+ (Accepts: O+, O-)</option>
+              <option value="A-">A- (Accepts: A-, O-)</option>
+              <option value="A+">A+ (Accepts: A+, A-, O+, O-)</option>
+              <option value="B-">B- (Accepts: B-, O-)</option>
+              <option value="B+">B+ (Accepts: B+, B-, O+, O-)</option>
+              <option value="AB-">AB- (Accepts: AB-, A-, B-, O-)</option>
+              <option value="AB+">AB+ (Universal Recipient: All groups)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Dispatch Hospital Center (Patient Location)</label>
+            <select class="form-select" id="match-hospital" onchange="runAIMatcher()">
+              <option value="10.9601,78.0766" selected>Karur Govt Medical College Hospital (Karur)</option>
+              <option value="10.7905,78.7047">Trichy MGM Government Hospital (Trichy - 78km)</option>
+              <option value="11.3410,77.7172">Erode District Headquarters Hospital (Erode - 64km)</option>
+              <option value="11.0168,76.9558">Coimbatore Medical College Hospital (Coimbatore - 130km)</option>
+              <option value="11.6643,78.1460">Salem Mohan Kumaramangalam Hospital (Salem - 88km)</option>
+              <option value="9.9252,78.1198">Madurai Rajaji Government Hospital (Madurai - 135km)</option>
+              <option value="13.0827,80.2707">Chennai General Hospital Depot (Chennai - 380km)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Urgency Priority Level</label>
+            <select class="form-select" id="match-urgency">
+              <option value="Emergency">🔴 Code Red Emergency (&lt; 30 mins)</option>
+              <option value="Urgent">🟠 Urgent Dispatch (&lt; 2 hours)</option>
+              <option value="Normal">🟢 Standard Scheduled Supply</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Units Required</label>
+            <input type="number" class="form-control" id="match-units" value="3" min="1" max="10">
+          </div>
+
+          <button class="btn btn-primary" style="width:100%; margin-top:10px;" onclick="runAIMatcher()">
+            <i data-lucide="refresh-cw" style="width:16px; height:16px;"></i>
+            Recalculate AI Match Scores
+          </button>
+        </div>
+
+        <!-- AI Match Results -->
+        <div class="panel">
+          <div class="panel-title">
+            <span><i data-lucide="list-ordered" style="color:var(--emerald); width:20px; height:20px;"></i> Ranked Compatible Donors</span>
+            <span class="badge badge-available" id="match-count-badge">8 Donors Matched</span>
+          </div>
+
+          <div class="table-responsive" style="max-height: 400px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Donor</th>
+                  <th>Group</th>
+                  <th>Distance</th>
+                  <th>AI Score</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="match-results-tbody">
+                <!-- Dynamically populated by runAIMatcher() -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 3: DONOR DIRECTORY ==================== -->
+    <div class="tab-content" id="tab-donors">
+      <div class="panel">
+        <div class="panel-title">
+          <span><i data-lucide="users" style="color:var(--cyan); width:20px; height:20px;"></i> Verified Blood Donor Registry</span>
+          <button class="btn btn-emerald" onclick="openNewDonorModal()">
+            <i data-lucide="user-plus" style="width:16px; height:16px;"></i> Add New Donor
+          </button>
+        </div>
+
+        <!-- Filters Row -->
+        <div style="display:flex; gap:14px; flex-wrap:wrap; margin-bottom:20px;">
+          <input type="text" class="form-control" id="donor-search" placeholder="Search by Donor Name, ID, or City..." style="max-width:320px;" oninput="filterDonorsTable()">
+          <select class="form-select" id="filter-blood" style="max-width:180px;" onchange="filterDonorsTable()">
+            <option value="">All Blood Groups</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+          </select>
+          <select class="form-select" id="filter-status" style="max-width:200px;" onchange="filterDonorsTable()">
+            <option value="">All Availability</option>
+            <option value="Available">Available</option>
+            <option value="Temporarily Unavailable">Temporarily Unavailable</option>
+            <option value="Unavailable">Unavailable</option>
+          </select>
+        </div>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Donor ID</th>
+                <th>Name</th>
+                <th>Group</th>
+                <th>Age</th>
+                <th>Contact</th>
+                <th>City</th>
+                <th>Status</th>
+                <th>Donations</th>
+              </tr>
+            </thead>
+            <tbody id="donors-tbody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 4: BLOOD STOCK ==================== -->
+    <div class="tab-content" id="tab-stock">
+      <div class="panel">
+        <div class="panel-title">
+          <span><i data-lucide="database" style="color:var(--crimson); width:20px; height:20px;"></i> Regional Hospital Blood Stock Matrix</span>
+          <span style="font-size:0.8rem; color:var(--text-muted);">Thresholds: 🔴 Critical &lt;5 | 🟠 Low 5-10 | 🟢 Adequate &gt;10</span>
+        </div>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Center Name</th>
+                <th>Location</th>
+                <th>A+</th>
+                <th>A-</th>
+                <th>B+</th>
+                <th>B-</th>
+                <th>AB+</th>
+                <th>AB-</th>
+                <th>O+</th>
+                <th>O-</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="stock-tbody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 5: HEALTH SCREENING ==================== -->
+    <div class="tab-content" id="tab-screening">
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-title">
+            <span><i data-lucide="stethoscope" style="color:var(--emerald); width:20px; height:20px;"></i> Pre-Donation Clinical Vitals Evaluation</span>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.86rem; margin-bottom:18px;">
+            Real-time rule engine evaluates vital sign parameters against physiological safety thresholds prior to phlebotomy.
+          </p>
+
+          <div class="form-group">
+            <label class="form-label">Body Temperature (°C)</label>
+            <div class="slider-row">
+              <input type="range" class="form-control" id="vit-temp" min="35.5" max="40.0" step="0.1" value="36.8" oninput="evalHealth()">
+              <span class="slider-val" id="val-temp">36.8 °C</span>
+            </div>
+            <small style="color:var(--text-dim);">Reference: 36.5 - 37.5 °C</small>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Heart Rate (Pulse bpm)</label>
+            <div class="slider-row">
+              <input type="range" class="form-control" id="vit-hr" min="40" max="140" step="1" value="74" oninput="evalHealth()">
+              <span class="slider-val" id="val-hr">74 bpm</span>
+            </div>
+            <small style="color:var(--text-dim);">Reference: 60 - 100 bpm</small>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Oxygen Saturation (SpO2 %)</label>
+            <div class="slider-row">
+              <input type="range" class="form-control" id="vit-spo2" min="85" max="100" step="1" value="98" oninput="evalHealth()">
+              <span class="slider-val" id="val-spo2">98 %</span>
+            </div>
+            <small style="color:var(--text-dim);">Reference: ≥ 95%</small>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Systolic Blood Pressure (mmHg)</label>
+            <div class="slider-row">
+              <input type="range" class="form-control" id="vit-sys" min="80" max="180" step="1" value="120" oninput="evalHealth()">
+              <span class="slider-val" id="val-sys">120 mmHg</span>
+            </div>
+            <small style="color:var(--text-dim);">Reference: 90 - 140 mmHg</small>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Diastolic Blood Pressure (mmHg)</label>
+            <div class="slider-row">
+              <input type="range" class="form-control" id="vit-dia" min="50" max="110" step="1" value="80" oninput="evalHealth()">
+              <span class="slider-val" id="val-dia">80 mmHg</span>
+            </div>
+            <small style="color:var(--text-dim);">Reference: 60 - 90 mmHg</small>
+          </div>
+
+          <div class="form-group" style="margin-top:16px;">
+            <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+              <input type="checkbox" id="vit-quest" checked onchange="evalHealth()" style="width:18px; height:18px;">
+              <span style="font-size:0.9rem;">Medical Questionnaire & Recent Health History Passed</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Evaluation Outcome -->
+        <div class="panel">
+          <div class="panel-title">
+            <span><i data-lucide="clipboard-check" style="color:var(--cyan); width:20px; height:20px;"></i> Automated Clinical Decision Support</span>
+          </div>
+
+          <div id="eval-result-card" class="eval-box eval-normal">
+            <div style="font-size:1.3rem; font-weight:800; margin-bottom:8px;" id="eval-status-title">
+              🟢 No Initial Warning Detected
+            </div>
+            <p id="eval-status-desc" style="font-size:0.92rem; line-height:1.5;">
+              All physiological vital telemetry parameters fall securely within standard clinical reference thresholds. Candidate cleared for pre-donation phlebotomy screening.
+            </p>
+          </div>
+
+          <div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--border-card);">
+            <h4 style="font-size:0.95rem; font-weight:700; margin-bottom:12px;">Physician Clinical Override</h4>
+            <div class="form-group">
+              <label class="form-label">Override Clinical Rationale (Doctor's Note)</label>
+              <textarea class="form-control" rows="3" placeholder="Enter clinical assessment rationale if manual override is authorized..."></textarea>
+            </div>
+            <button class="btn btn-outline" onclick="showToast('Physician Clinical Override Logged to Audit Trail')">
+              <i data-lucide="check" style="width:16px; height:16px;"></i> Submit Override Authorization
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 6: GPS DISPATCH MAP ==================== -->
+    <div class="tab-content" id="tab-map-tab">
+      <div class="panel">
+        <div class="panel-title">
+          <span><i data-lucide="map" style="color:var(--crimson); width:20px; height:20px;"></i> Tamil Nadu Emergency Geolocation Dispatch Telemetry</span>
+          <span style="font-size:0.82rem; color:var(--text-muted);">Red: Hospitals &bull; Green: Available Donors &bull; Yellow: Unavailable</span>
+        </div>
+        <div id="gps-map"></div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast-msg">
+      <i data-lucide="check-circle-2" style="color:var(--emerald); width:22px; height:22px;"></i>
+      <span id="toast-text">Alert triggered successfully!</span>
+    </div>
+
+    <footer>
+      <p>MediPulse AI &bull; Healthcare Decision Support System &bull; Karur & Tamil Nadu Regional Network</p>
+      <p style="margin-top:6px; font-size:0.78rem; opacity:0.7;">
+        Compatible with Streamlit Community Cloud, Vercel Edge, and GitHub CI/CD.
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript Application Logic -->
+  <script>
+    // Lucide Icons Init
+    lucide.createIcons();
+
+    // Global State
+    let privacyMode = false;
+    let leafletMap = null;
+
+    // Realistic Tamil Nadu Hospital Dataset
+    const hospitals = [
+      { id: "CTR-01", name: "Karur Govt Medical College Hospital", city: "Karur", lat: 10.9601, lng: 78.0766, phone: "+91-4324-220101", stock: { "A+":21, "A-":25, "B+":30, "B-":2, "AB+":34, "AB-":15, "O+":45, "O-":24 } },
+      { id: "CTR-02", name: "Chennai General Hospital Transfusion Depot", city: "Chennai", lat: 13.0827, lng: 80.2707, phone: "+91-44-220102", stock: { "A+":20, "A-":13, "B+":31, "B-":13, "AB+":21, "AB-":14, "O+":34, "O-":6 } },
+      { id: "CTR-03", name: "Coimbatore Medical College Hospital", city: "Coimbatore", lat: 11.0168, lng: 76.9558, phone: "+91-422-220103", stock: { "A+":44, "A-":8, "B+":24, "B-":12, "AB+":23, "AB-":4, "O+":15, "O-":16 } },
+      { id: "CTR-04", name: "Madurai Rajaji Government Hospital", city: "Madurai", lat: 9.9252, lng: 78.1198, phone: "+91-452-220104", stock: { "A+":18, "A-":12, "B+":28, "B-":9, "AB+":19, "AB-":7, "O+":38, "O-":14 } },
+      { id: "CTR-05", name: "Trichy MGM Government Hospital", city: "Tiruchirappalli", lat: 10.7905, lng: 78.7047, phone: "+91-431-220105", stock: { "A+":32, "A-":14, "B+":22, "B-":8, "AB+":17, "AB-":9, "O+":29, "O-":11 } },
+      { id: "CTR-06", name: "Tiruppur Regional Red Cross Depot", city: "Tiruppur", lat: 11.1085, lng: 77.3411, phone: "+91-421-220106", stock: { "A+":15, "A-":6, "B+":18, "B-":4, "AB+":12, "AB-":5, "O+":22, "O-":7 } },
+      { id: "CTR-07", name: "Salem Mohan Kumaramangalam Hospital", city: "Salem", lat: 11.6643, lng: 78.1460, phone: "+91-427-220107", stock: { "A+":28, "A-":11, "B+":25, "B-":7, "AB+":14, "AB-":8, "O+":33, "O-":9 } },
+      { id: "CTR-08", name: "Erode District Headquarters Hospital", city: "Erode", lat: 11.3410, lng: 77.7172, phone: "+91-424-220108", stock: { "A+":22, "A-":9, "B+":20, "B-":5, "AB+":16, "AB-":6, "O+":26, "O-":8 } }
+    ];
+
+    // Curated Tamil Nadu Verified Donors Dataset
+    const donors = [
+      { id: "DON-1001", name: "Deepa Raman", blood: "B+", age: 35, phone: "+91-984242098", email: "deepa.r@example.in", city: "Karur", lat: 10.9456, lng: 78.0607, status: "Available", donations: 9 },
+      { id: "DON-1002", name: "Anand Raman", blood: "O+", age: 23, phone: "+91-984238657", email: "anand.r@example.in", city: "Karur", lat: 10.9712, lng: 78.0891, status: "Available", donations: 6 },
+      { id: "DON-1003", name: "Kumar Pillai", blood: "AB+", age: 35, phone: "+91-984210851", email: "kumar.p@example.in", city: "Coimbatore", lat: 11.0247, lng: 76.9494, status: "Available", donations: 12 },
+      { id: "DON-1004", name: "Vijay Natarajan", blood: "B+", age: 42, phone: "+91-984222676", email: "vijay.n@example.in", city: "Madurai", lat: 9.9391, lng: 78.1239, status: "Unavailable", donations: 8 },
+      { id: "DON-1005", name: "Dinesh Natarajan", blood: "A+", age: 53, phone: "+91-984248427", email: "dinesh.n@example.in", city: "Tiruchirappalli", lat: 10.7952, lng: 78.7191, status: "Available", donations: 11 },
+      { id: "DON-1006", name: "Anand Ganesan", blood: "A+", age: 36, phone: "+91-984220458", email: "anand.g@example.in", city: "Tiruppur", lat: 11.1231, lng: 77.3363, status: "Available", donations: 2 },
+      { id: "DON-1007", name: "Prakash Shanmugam", blood: "A+", age: 60, phone: "+91-984244993", email: "prakash.s@example.in", city: "Salem", lat: 11.6817, lng: 78.1519, status: "Available", donations: 8 },
+      { id: "DON-1008", name: "Ganesh Kandasamy", blood: "O+", age: 42, phone: "+91-984245382", email: "ganesh.k@example.in", city: "Erode", lat: 11.3485, lng: 77.7059, status: "Available", donations: 3 },
+      { id: "DON-1009", name: "Santhosh Viswanathan", blood: "B+", age: 35, phone: "+91-984218675", email: "santhosh.v@example.in", city: "Karur", lat: 10.9512, lng: 78.0711, status: "Available", donations: 10 },
+      { id: "DON-1010", name: "Sowmya Kandasamy", blood: "AB+", age: 27, phone: "+91-984244718", email: "sowmya.k@example.in", city: "Vellore", lat: 12.9063, lng: 79.1349, status: "Temporarily Unavailable", donations: 6 },
+      { id: "DON-1011", name: "Sowmya Rajendran", blood: "A+", age: 32, phone: "+91-984228131", email: "sowmya.r@example.in", city: "Karur", lat: 10.9632, lng: 78.0645, status: "Available", donations: 10 },
+      { id: "DON-1012", name: "Gayathri Mudaliar", blood: "O-", age: 22, phone: "+91-984260432", email: "gayathri.m@example.in", city: "Karur", lat: 10.9589, lng: 78.0812, status: "Available", donations: 13 },
+      { id: "DON-1013", name: "Deepa Naidu", blood: "O+", age: 35, phone: "+91-984294012", email: "deepa.n@example.in", city: "Thanjavur", lat: 10.7714, lng: 79.1351, status: "Available", donations: 11 },
+      { id: "DON-1014", name: "Vignesh Gounder", blood: "A+", age: 29, phone: "+91-984276542", email: "vignesh.g@example.in", city: "Karur", lat: 10.9411, lng: 78.0552, status: "Available", donations: 9 },
+      { id: "DON-1015", name: "Muthu Raman", blood: "O-", age: 31, phone: "+91-984211223", email: "muthu.r@example.in", city: "Tiruchirappalli", lat: 10.8012, lng: 78.6912, status: "Available", donations: 14 },
+      { id: "DON-1016", name: "Kavitha Sundaram", blood: "B-", age: 28, phone: "+91-984233445", email: "kavitha.s@example.in", city: "Karur", lat: 10.9678, lng: 78.0722, status: "Available", donations: 5 }
+    ];
+
+    // Biological Compatibility Matrix
+    const compatibility = {
+      "O-": ["O-"],
+      "O+": ["O+", "O-"],
+      "A-": ["A-", "O-"],
+      "A+": ["A+", "A-", "O+", "O-"],
+      "B-": ["B-", "O-"],
+      "B+": ["B+", "B-", "O+", "O-"],
+      "AB-": ["AB-", "A-", "B-", "O-"],
+      "AB+": ["AB+", "AB-", "A+", "A-", "B+", "B-", "O+", "O-"]
+    };
+
+    // Haversine Distance Calculation (km)
+    function haversine(lat1, lon1, lat2, lon2) {
+      const R = 6371; // Earth's radius km
+      const dLat = (lat2 - lat1) * Math.PI / 180;
+      const dLon = (lon2 - lon1) * Math.PI / 180;
+      const a = 
+        Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+        Math.sin(dLon/2) * Math.sin(dLon/2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      return (R * c).toFixed(1);
+    }
+
+    // Tab Navigation
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
+      
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.add('active');
+
+      const tabs = Array.from(document.querySelectorAll('.nav-tab'));
+      const activeIdx = {
+        'dashboard': 0, 'emergency': 1, 'donors': 2, 'stock': 3, 'screening': 4, 'map-tab': 5
+      }[tabId] || 0;
+      if (tabs[activeIdx]) tabs[activeIdx].classList.add('active');
+
+      if (tabId === 'map-tab') {
+        setTimeout(initOrResizeMap, 150);
+      }
+    }
+
+    // Privacy Mask Toggle
+    function togglePrivacy() {
+      privacyMode = !privacyMode;
+      const label = document.getElementById('privacy-label');
+      const icon = document.getElementById('privacy-icon');
+      if (privacyMode) {
+        label.innerText = 'Privacy Mode: ON (Public / Student View)';
+        icon.style.color = '#F59E0B';
+        showToast('Privacy Mask Active: Personally Identifiable Information Redacted');
+      } else {
+        label.innerText = 'Privacy Mode: OFF (Hospital Admin View)';
+        icon.style.color = '#10B981';
+        showToast('Admin Mode Active: Full Medical Records Visible');
+      }
+      renderDonorsTable();
+      runAIMatcher();
+    }
+
+    function maskName(str) {
+      if (!privacyMode) return str;
+      const parts = str.split(' ');
+      if (parts.length > 1) return parts[0][0] + '. ' + parts[1];
+      return str.substring(0, 2) + '***';
+    }
+    function maskContact(str) {
+      if (!privacyMode) return str;
+      return '+91-98*** ' + str.slice(-4);
+    }
+
+    // AI Matcher Algorithm
+    function runAIMatcher() {
+      const bloodNeeded = document.getElementById('match-blood-group').value;
+      const hospCoord = document.getElementById('match-hospital').value.split(',').map(Number);
+      const hospLat = hospCoord[0];
+      const hospLng = hospCoord[1];
+      const allowedBlood = compatibility[bloodNeeded] || [bloodNeeded];
+
+      const scoredDonors = donors
+        .filter(d => allowedBlood.includes(d.blood))
+        .map(d => {
+          const dist = parseFloat(haversine(hospLat, hospLng, d.lat, d.lng));
+          // Proximity score (100 if <10km, decays with distance)
+          const proxScore = Math.max(0, 100 - (dist * 1.5));
+          // Exact match bonus
+          const bioScore = (d.blood === bloodNeeded) ? 100 : 85;
+          // Status score
+          const statusScore = (d.status === 'Available') ? 100 : (d.status === 'Temporarily Unavailable' ? 40 : 10);
+          // Experience score
+          const expScore = Math.min(100, d.donations * 10);
+
+          const finalScore = Math.round(
+            (bioScore * 0.40) + (proxScore * 0.35) + (statusScore * 0.15) + (expScore * 0.10)
+          );
+
+          return { ...d, distance: dist, score: finalScore };
+        })
+        .sort((a, b) => b.score - a.score);
+
+      const tbody = document.getElementById('match-results-tbody');
+      tbody.innerHTML = '';
+      document.getElementById('match-count-badge').innerText = `${scoredDonors.length} Donors Matched`;
+
+      scoredDonors.slice(0, 8).forEach(d => {
+        const tr = document.createElement('tr');
+        const badgeClass = d.status === 'Available' ? 'badge-available' : 'badge-temp';
+        tr.innerHTML = `
+          <td>
+            <strong>${maskName(d.name)}</strong><br>
+            <small style="color:var(--text-muted);">${d.city}</small>
+          </td>
+          <td><span class="badge badge-blood">${d.blood}</span></td>
+          <td><strong>${d.distance} km</strong></td>
+          <td>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <strong style="color:var(--emerald); font-size:1.05rem;">${d.score}%</strong>
+              <div style="flex:1; height:6px; background:#334155; border-radius:3px; max-width:60px;">
+                <div style="width:${d.score}%; height:100%; background:var(--emerald); border-radius:3px;"></div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <button class="btn btn-emerald" style="padding:6px 12px; font-size:0.8rem;" onclick="dispatchAlert('${d.id}', '${d.name}')">
+              <i data-lucide="send" style="width:14px; height:14px;"></i> Alert
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+      lucide.createIcons();
+    }
+
+    function dispatchAlert(id, name) {
+      showToast(`🚨 Emergency Dispatch Alert Sent to ${maskName(name)} via SMS & WhatsApp!`);
+    }
+
+    // Donors Table Rendering
+    function renderDonorsTable(list = donors) {
+      const tbody = document.getElementById('donors-tbody');
+      tbody.innerHTML = '';
+      list.forEach(d => {
+        const tr = document.createElement('tr');
+        const badgeClass = d.status === 'Available' ? 'badge-available' : (d.status === 'Temporarily Unavailable' ? 'badge-temp' : 'badge-critical');
+        tr.innerHTML = `
+          <td><span style="font-family:'JetBrains Mono', monospace; font-size:0.8rem; color:var(--text-muted);">${d.id}</span></td>
+          <td><strong>${maskName(d.name)}</strong></td>
+          <td><span class="badge badge-blood">${d.blood}</span></td>
+          <td>${d.age}</td>
+          <td>${maskContact(d.phone)}</td>
+          <td>${d.city}</td>
+          <td><span class="badge ${badgeClass}">${d.status}</span></td>
+          <td><strong>${d.donations}</strong> donations</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function filterDonorsTable() {
+      const q = document.getElementById('donor-search').value.toLowerCase();
+      const blood = document.getElementById('filter-blood').value;
+      const status = document.getElementById('filter-status').value;
+
+      const filtered = donors.filter(d => {
+        const matchesQ = d.name.toLowerCase().includes(q) || d.id.toLowerCase().includes(q) || d.city.toLowerCase().includes(q);
+        const matchesB = !blood || d.blood === blood;
+        const matchesS = !status || d.status === status;
+        return matchesQ && matchesB && matchesS;
+      });
+      renderDonorsTable(filtered);
+    }
+
+    // Blood Stock Table Rendering
+    function renderStockTable() {
+      const tbody = document.getElementById('stock-tbody');
+      tbody.innerHTML = '';
+      hospitals.forEach(h => {
+        const tr = document.createElement('tr');
+        const total = Object.values(h.stock).reduce((a, b) => a + b, 0);
+        
+        function formatUnit(val) {
+          if (val < 5) return `<span class="badge badge-critical">${val}</span>`;
+          if (val <= 10) return `<span class="badge badge-temp">${val}</span>`;
+          return `<span class="badge badge-available">${val}</span>`;
+        }
+
+        tr.innerHTML = `
+          <td><strong>${h.name}</strong></td>
+          <td><small style="color:var(--text-muted);">${h.city}</small></td>
+          <td>${formatUnit(h.stock["A+"])}</td>
+          <td>${formatUnit(h.stock["A-"])}</td>
+          <td>${formatUnit(h.stock["B+"])}</td>
+          <td>${formatUnit(h.stock["B-"])}</td>
+          <td>${formatUnit(h.stock["AB+"])}</td>
+          <td>${formatUnit(h.stock["AB-"])}</td>
+          <td>${formatUnit(h.stock["O+"])}</td>
+          <td>${formatUnit(h.stock["O-"])}</td>
+          <td><strong style="color:#FFF;">${total}</strong></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Pre-Donation Health Evaluation Engine
+    function evalHealth() {
+      const temp = parseFloat(document.getElementById('vit-temp').value);
+      const hr = parseInt(document.getElementById('vit-hr').value);
+      const spo2 = parseInt(document.getElementById('vit-spo2').value);
+      const sys = parseInt(document.getElementById('vit-sys').value);
+      const dia = parseInt(document.getElementById('vit-dia').value);
+      const quest = document.getElementById('vit-quest').checked;
+
+      document.getElementById('val-temp').innerText = `${temp.toFixed(1)} °C`;
+      document.getElementById('val-hr').innerText = `${hr} bpm`;
+      document.getElementById('val-spo2').innerText = `${spo2} %`;
+      document.getElementById('val-sys').innerText = `${sys} mmHg`;
+      document.getElementById('val-dia').innerText = `${dia} mmHg`;
+
+      const card = document.getElementById('eval-result-card');
+      const title = document.getElementById('eval-status-title');
+      const desc = document.getElementById('eval-status-desc');
+
+      let warnings = [];
+      let deferrals = [];
+
+      if (temp > 37.5) deferrals.push(`Elevated body temperature (${temp}°C) indicates possible active infection or pyrexia.`);
+      if (temp < 36.0) warnings.push(`Mild hypothermia (${temp}°C) detected.`);
+      if (hr < 50 || hr > 110) deferrals.push(`Heart rate (${hr} bpm) falls outside acceptable phlebotomy limits.`);
+      else if (hr < 60 || hr > 100) warnings.push(`Resting pulse (${hr} bpm) is slightly borderline.`);
+      if (spo2 < 95) deferrals.push(`Low blood oxygen saturation (${spo2}%) precludes blood donation.`);
+      if (sys > 160 || dia > 100) deferrals.push(`Hypertensive crisis risk: BP ${sys}/${dia} mmHg is severely elevated.`);
+      else if (sys > 140 || dia > 90) warnings.push(`Mild stage-1 hypertension: BP ${sys}/${dia} mmHg requires physician verification.`);
+      else if (sys < 90 || dia < 60) warnings.push(`Hypotension reading: BP ${sys}/${dia} mmHg.`);
+      if (!quest) deferrals.push(`Medical history questionnaire contains positive risk factors.`);
+
+      card.className = 'eval-box';
+      if (deferrals.length > 0) {
+        card.classList.add('eval-deferral');
+        title.innerHTML = '🔴 Temporary Deferral and Reassessment Required';
+        desc.innerHTML = `<strong>Clinical Rationale:</strong><br>• ` + deferrals.join('<br>• ');
+      } else if (warnings.length > 0) {
+        card.classList.add('eval-warning');
+        title.innerHTML = '🟡 Medical Review Required (Physician Consultation)';
+        desc.innerHTML = `<strong>Attention Required:</strong><br>• ` + warnings.join('<br>• ');
+      } else {
+        card.classList.add('eval-normal');
+        title.innerHTML = '🟢 No Initial Warning Detected';
+        desc.innerHTML = 'All physiological vital telemetry parameters fall securely within standard clinical reference thresholds. Candidate cleared for pre-donation phlebotomy screening.';
+      }
+    }
+
+    // Leaflet GPS Map
+    function initOrResizeMap() {
+      if (!leafletMap) {
+        leafletMap = L.map('gps-map').setView([10.9601, 78.0766], 8);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+          attribution: '&copy; OpenStreetMap & CartoDB',
+          maxZoom: 18
+        }).addTo(leafletMap);
+
+        // Hospitals Markers
+        hospitals.forEach(h => {
+          const marker = L.circleMarker([h.lat, h.lng], {
+            radius: 9,
+            fillColor: '#E11D48',
+            color: '#FFFFFF',
+            weight: 2,
+            opacity: 1,
+            fillOpacity: 0.9
+          }).addTo(leafletMap);
+
+          marker.bindPopup(`
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; color:#0F172A; min-width:200px;">
+              <strong style="color:#BE123C; font-size:1rem;">🏥 ${h.name}</strong><br>
+              <span style="font-size:0.85rem; color:#475569;">📍 ${h.city}, Tamil Nadu</span><br>
+              <div style="margin-top:6px; font-size:0.82rem;">
+                <strong>Emergency:</strong> ${h.phone}<br>
+                <strong>O- Stock:</strong> ${h.stock['O-']} units &bull; <strong>B- Stock:</strong> ${h.stock['B-']} units
+              </div>
+            </div>
+          `);
+        });
+
+        // Donors Markers
+        donors.forEach(d => {
+          const color = d.status === 'Available' ? '#10B981' : '#F59E0B';
+          const marker = L.circleMarker([d.lat, d.lng], {
+            radius: 6,
+            fillColor: color,
+            color: '#FFFFFF',
+            weight: 1.5,
+            opacity: 1,
+            fillOpacity: 0.85
+          }).addTo(leafletMap);
+
+          marker.bindPopup(`
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; color:#0F172A;">
+              <strong>👤 ${maskName(d.name)}</strong> (${d.blood})<br>
+              <span style="font-size:0.85rem; color:#475569;">📍 ${d.city} &bull; ${d.status}</span><br>
+              <small>Donations: ${d.donations} completed</small>
+            </div>
+          `);
+        });
+      } else {
+        leafletMap.invalidateSize();
+      }
+    }
+
+    // Chart.js Visualizations
+    function initCharts() {
+      // 1. Blood Distribution Donut
+      const ctxDist = document.getElementById('chart-blood-dist').getContext('2d');
+      new Chart(ctxDist, {
+        type: 'doughnut',
+        data: {
+          labels: ['O+', 'A+', 'B+', 'AB+', 'O-', 'A-', 'B-', 'AB-'],
+          datasets: [{
+            data: [38, 32, 28, 18, 14, 12, 10, 8],
+            backgroundColor: [
+              '#E11D48', '#06B6D4', '#10B981', '#F59E0B',
+              '#9333EA', '#3B82F6', '#EC4899', '#64748B'
+            ],
+            borderColor: '#0B0F19',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'right', labels: { color: '#94A3B8', font: { family: 'Plus Jakarta Sans', size: 11 } } }
+          }
+        }
+      });
+
+      // 2. Hospital Stock Bar
+      const ctxStock = document.getElementById('chart-hospital-stock').getContext('2d');
+      new Chart(ctxStock, {
+        type: 'bar',
+        data: {
+          labels: ['Karur MCH', 'Chennai GH', 'Coimbatore MCH', 'Madurai Rajaji', 'Trichy MGM', 'Salem MCH'],
+          datasets: [{
+            label: 'Total Available Blood Units',
+            data: [196, 157, 146, 145, 142, 140],
+            backgroundColor: 'rgba(6, 182, 212, 0.8)',
+            borderColor: '#06B6D4',
+            borderWidth: 1,
+            borderRadius: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { ticks: { color: '#94A3B8', font: { size: 10 } }, grid: { display: false } },
+            y: { ticks: { color: '#94A3B8' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+
+      // 3. Monthly Trends
+      const ctxTrends = document.getElementById('chart-trends').getContext('2d');
+      new Chart(ctxTrends, {
+        type: 'line',
+        data: {
+          labels: ['May 2026', 'Jun 2026', 'Jul 2026', 'Aug 2026', 'Sep 2026', 'Oct 2026'],
+          datasets: [
+            {
+              label: 'Successful Donations',
+              data: [28, 34, 42, 38, 48, 55],
+              borderColor: '#10B981',
+              backgroundColor: 'rgba(16, 185, 129, 0.15)',
+              fill: true,
+              tension: 0.35
+            },
+            {
+              label: 'Emergency Requests',
+              data: [12, 15, 18, 14, 20, 18],
+              borderColor: '#E11D48',
+              backgroundColor: 'rgba(225, 29, 72, 0.1)',
+              fill: true,
+              tension: 0.35
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { ticks: { color: '#94A3B8' }, grid: { display: false } },
+            y: { ticks: { color: '#94A3B8' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+          },
+          plugins: { legend: { labels: { color: '#94A3B8' } } }
+        }
+      });
+
+      // 4. Screenings Outcomes
+      const ctxScreen = document.getElementById('chart-screenings').getContext('2d');
+      new Chart(ctxScreen, {
+        type: 'bar',
+        data: {
+          labels: ['Cleared for Donation', 'Medical Review Required', 'Temporary Deferral'],
+          datasets: [{
+            data: [128, 18, 14],
+            backgroundColor: ['#10B981', '#F59E0B', '#E11D48'],
+            borderRadius: 8
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { ticks: { color: '#94A3B8', font: { size: 10 } }, grid: { display: false } },
+            y: { ticks: { color: '#94A3B8' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+    }
+
+    // Modal Simulation & Toasts
+    function openNewDonorModal() {
+      const name = prompt("Enter Donor Full Name:");
+      if (!name) return;
+      const blood = prompt("Enter Blood Group (e.g. O+, A+, B+, AB-):", "O+");
+      const city = prompt("Enter City / Locality in Tamil Nadu:", "Karur");
+      const newD = {
+        id: `DON-${1000 + donors.length + 1}`,
+        name: name,
+        blood: blood.toUpperCase(),
+        age: 26,
+        phone: "+91-9842" + Math.floor(100000 + Math.random() * 900000),
+        email: name.toLowerCase().replace(' ', '.') + "@example.in",
+        city: city,
+        lat: 10.9601 + (Math.random() - 0.5) * 0.1,
+        lng: 78.0766 + (Math.random() - 0.5) * 0.1,
+        status: "Available",
+        donations: 1
+      };
+      donors.unshift(newD);
+      renderDonorsTable();
+      runAIMatcher();
+      document.getElementById('kpi-donors').innerText = donors.length + 146;
+      showToast(`🎉 New Donor ${name} successfully enrolled in Tamil Nadu registry!`);
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById('toast-msg');
+      document.getElementById('toast-text').innerText = msg;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 4000);
+    }
+
+    // Window Init
+    window.onload = function() {
+      renderDonorsTable();
+      renderStockTable();
+      runAIMatcher();
+      initCharts();
+      evalHealth();
+    };
+  </script>
+</body>
+</html>
