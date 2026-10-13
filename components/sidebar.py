@@ -14,8 +14,8 @@ def render_sidebar(donors_df: pd.DataFrame, hospitals_df: pd.DataFrame) -> dict:
         # Branding Card
         st.markdown("""
         <div class="sidebar-brand-card">
-            <div class="sidebar-brand-title">
-                🩸 MediPulse AI
+            <div class="sidebar-brand-title" style="color: #10B981 !important;">
+                🩸 MEDIPULSE AI - TAMILNADU
             </div>
             <div style="font-weight:600; color:#FFFFFF; font-size:0.9rem; margin-top:4px;">
                 Emergency Blood Donor & Screening System
