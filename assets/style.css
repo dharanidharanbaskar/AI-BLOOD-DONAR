@@ -1,6 +1,6 @@
 /* Custom Styling for AI Blood Donor Finder & Health Screening System */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
 
 /* Apply Copperplate font to text elements while excluding Material Icons */
 html, body, .stApp, p, span, label, li, h1, h2, h3, h4, h5, h6, button, input, select, textarea, div {
@@ -10,7 +10,6 @@ html, body, .stApp, p, span, label, li, h1, h2, h3, h4, h5, h6, button, input, s
 /* Preserve Material Symbols & Icons font for Streamlit UI buttons & headers */
 [class*="material-symbols"], 
 [class*="material-icons"], 
-[data-testid="stSidebarCollapseButton"] *, 
 [data-testid="stHeader"] *,
 [data-testid="stIcon"] {
     font-family: 'Material Symbols Outlined', 'Material Icons', sans-serif !important;
@@ -27,21 +26,74 @@ p, span, label, li {
     color: #1E293B;
 }
 
-/* Custom 3-Line Hamburger Menu & Category Navigation Button */
-button[data-testid="stSidebarCollapseButton"] {
-    background-color: #1E293B !important;
-    color: #FFFFFF !important;
+/* Hide raw text ligature 'keyboard_double' and style as modern 'VIEW CATEGORIES' button */
+button[data-testid="stSidebarCollapseButton"],
+[data-testid="stSidebarCollapseButton"] button,
+button[data-testid="stSidebarCollapsedControl"],
+[data-testid="stSidebarCollapsedControl"] button {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+    border: 1px solid #059669 !important;
     border-radius: 8px !important;
-    padding: 6px 12px !important;
-    border: 1px solid #334155 !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
+    padding: 7px 16px !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35) !important;
     transition: all 0.2s ease-in-out !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 160px !important;
+    height: auto !important;
+    text-decoration: none !important;
+    position: relative !important;
 }
 
-button[data-testid="stSidebarCollapseButton"]:hover {
-    background-color: #DC2626 !important;
+/* Hide any raw text / ligatures inside the collapse button */
+button[data-testid="stSidebarCollapseButton"] span,
+button[data-testid="stSidebarCollapseButton"] div,
+button[data-testid="stSidebarCollapseButton"] svg,
+[data-testid="stSidebarCollapseButton"] span,
+[data-testid="stSidebarCollapseButton"] div,
+[data-testid="stSidebarCollapseButton"] svg,
+button[data-testid="stSidebarCollapsedControl"] span,
+button[data-testid="stSidebarCollapsedControl"] div,
+button[data-testid="stSidebarCollapsedControl"] svg,
+[data-testid="stSidebarCollapsedControl"] span,
+[data-testid="stSidebarCollapsedControl"] div,
+[data-testid="stSidebarCollapsedControl"] svg {
+    display: none !important;
+    visibility: hidden !important;
+    font-size: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    line-height: 0 !important;
+    color: transparent !important;
+}
+
+/* Insert clean button label: ☰ VIEW CATEGORIES */
+button[data-testid="stSidebarCollapseButton"]::after,
+[data-testid="stSidebarCollapseButton"] button::after,
+button[data-testid="stSidebarCollapsedControl"]::after,
+[data-testid="stSidebarCollapsedControl"] button::after {
+    content: "☰ VIEW CATEGORIES" !important;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: 0.82rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.06em !important;
     color: #FFFFFF !important;
-    transform: scale(1.05) !important;
+    visibility: visible !important;
+    display: inline-block !important;
+    text-transform: uppercase !important;
+}
+
+button[data-testid="stSidebarCollapseButton"]:hover,
+[data-testid="stSidebarCollapseButton"] button:hover,
+button[data-testid="stSidebarCollapsedControl"]:hover,
+[data-testid="stSidebarCollapsedControl"] button:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.45) !important;
+    border-color: #047857 !important;
 }
 
 /* Custom Green Styling for ALL Buttons, Submit Buttons & Download Buttons */

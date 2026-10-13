@@ -11,6 +11,13 @@ def render_sidebar(donors_df: pd.DataFrame, hospitals_df: pd.DataFrame) -> dict:
     Returns dictionary of active filter criteria.
     """
     with st.sidebar:
+        # View Categories Button
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); padding: 10px 16px; border-radius: 10px; color: white; text-align: center; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 14px; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35); text-transform: uppercase;">
+            ☰ VIEW CATEGORIES & FILTERS
+        </div>
+        """, unsafe_allow_html=True)
+
         # Branding Card
         st.markdown("""
         <div class="sidebar-brand-card">
